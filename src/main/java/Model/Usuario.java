@@ -7,6 +7,7 @@ package Model;
 public class Usuario {
     
     //Variables
+    private int id;
     private String idUsuario;
     private int numCompra;
     private String nombre;
@@ -18,7 +19,8 @@ public class Usuario {
     public Usuario() {
     }//Fin constructor vacio
 
-    public Usuario(String idUsuario, int numCompra, String nombre, String apellido1, String apellido2, String correo, String clave) {
+    public Usuario(int id, String idUsuario, int numCompra, String nombre, String apellido1, String apellido2, String correo, String clave) {
+        this.id = id;
         this.idUsuario = idUsuario;
         this.numCompra = numCompra;
         this.nombre = nombre;
@@ -26,7 +28,15 @@ public class Usuario {
         this.apellido2 = apellido2;
         this.correo = correo;
         this.clave = clave;
-    }//Fin constructor 
+    }//Fin constructor
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getIdUsuario() {
         return idUsuario;
@@ -82,5 +92,5 @@ public class Usuario {
 
     public void setClave(String clave) {
         this.clave = clave;
-    }   
+    }  
 }//Fin clase
