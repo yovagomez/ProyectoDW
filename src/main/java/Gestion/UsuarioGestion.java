@@ -94,7 +94,7 @@ public class UsuarioGestion {
     }//Fin metodo encargado de el INSERT
     
     //Metodo encargado de realizar un Update en Usuario
-    public static boolean updateEstudiante(Usuario usuario) {
+    public static boolean updateUsuario(Usuario usuario) {
         try {
             PreparedStatement sentencia = Conexion.getConexion()
                     .prepareStatement(SQL_UPDATEUSUARIOS);
@@ -115,7 +115,7 @@ public class UsuarioGestion {
     }//Fin metodo encargado de el Update
     
     //Metodo encargado de realizar un DELETE en Usuario
-    public static boolean deleteEstudiante(Usuario usuario) {
+    public static boolean deleteUsuario(Usuario usuario) {
         try {
             PreparedStatement sentencia = Conexion.getConexion()
                     .prepareStatement(SQL_DELETEUSUARIOS);

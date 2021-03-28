@@ -68,7 +68,7 @@ public class AgenteGestion {
     }//Fin metodo llamar un Agente
     
     //Metodo encargado de realizar un INSERT en Agente
-    public static boolean insertEstudiante(Agente agente) {
+    public static boolean insertAgente(Agente agente) {
         try {
             PreparedStatement sentencia = Conexion.getConexion()
                     .prepareStatement(SQL_INSERTAGENTES);
@@ -85,7 +85,7 @@ public class AgenteGestion {
     }//Fin metodo encargado de el INSERT
     
     //Metodo encargado de realizar un Update en Agente
-    public static boolean updateEstudiante(Agente agente) {
+    public static boolean updateAgente(Agente agente) {
         try {
             PreparedStatement sentencia = Conexion.getConexion()
                     .prepareStatement(SQL_UPDATEAGENTES);
@@ -103,7 +103,7 @@ public class AgenteGestion {
     }//Fin metodo encargado de el Update
     
     //Metodo encargado de realizar un DELETE en Agente
-    public static boolean deleteEstudiante(Agente agente) {
+    public static boolean deleteAgente(Agente agente) {
         try {
             PreparedStatement sentencia = Conexion.getConexion()
                     .prepareStatement(SQL_DELETEAGENTES);
