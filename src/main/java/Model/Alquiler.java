@@ -25,7 +25,7 @@ public class Alquiler {
     public Alquiler() {
     }
 
-    public Alquiler(int id, int codigoAlquiler, String idUsuario, int idVehiculo, int idAgente, Date fechaEntrega, String horaEntrega, Date fechaDevolucion, Time horaDevolucion, double montoAlquiler) {
+    public Alquiler(int codigoAlquiler, String idUsuario, int idVehiculo, int idAgente, Date fechaEntrega, String horaEntrega, Date fechaDevolucion, Time horaDevolucion, double montoAlquiler) {
         this.codigoAlquiler = codigoAlquiler;
         this.idUsuario = idUsuario;
         this.idVehiculo = idVehiculo;
@@ -36,7 +36,6 @@ public class Alquiler {
         this.horaDevolucion = horaDevolucion;
         this.montoAlquiler = montoAlquiler;
     }
-
 
     public int getCodigoAlquiler() {
         return codigoAlquiler;
@@ -109,4 +108,6 @@ public class Alquiler {
     public void setMontoAlquiler(double montoAlquiler) {
         this.montoAlquiler = montoAlquiler;
     }
+
+    
 }

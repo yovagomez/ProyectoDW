@@ -11,13 +11,14 @@ package Model;
  */
 public class Descuento {
      private int id;
-    private int idDescuento;
+    private String idDescuento;
     private String descuento;
 
+    
     public Descuento() {
     }
 
-    public Descuento(int id, int idDescuento, String descuento) {
+    public Descuento(int id, String idDescuento, String descuento) {
         this.id = id;
         this.idDescuento = idDescuento;
         this.descuento = descuento;
@@ -31,11 +32,11 @@ public class Descuento {
         this.id = id;
     }
 
-    public int getIdDescuento() {
+    public String getIdDescuento() {
         return idDescuento;
     }
 
-    public void setIdDescuento(int idDescuento) {
+    public void setIdDescuento(String idDescuento) {
         this.idDescuento = idDescuento;
     }
 
@@ -46,4 +47,6 @@ public class Descuento {
     public void setDescuento(String descuento) {
         this.descuento = descuento;
     }
+
+    
 }
