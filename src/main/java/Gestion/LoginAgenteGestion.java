@@ -13,7 +13,7 @@ import java.util.logging.Logger;
  */
 public class LoginAgenteGestion {
     
-    private static final String SQL_GETLOGINAGENTE="SELECT * FROM loginAgente where usuario=? and password=MD5(?)";
+    private static final String SQL_GETLOGINAGENTE="SELECT * FROM loginAgente where usuario = ? and password = MD5(?)";
     
     public static LoginAgente getLoginAgente(String usuario, String password) {
         LoginAgente loginAgente = null;
@@ -26,7 +26,7 @@ public class LoginAgenteGestion {
             if (rs.next()) {
                 loginAgente=new LoginAgente();
                 loginAgente.setUsuario(usuario);
-                loginAgente.setUsuario(password);
+                loginAgente.setPassword(password);
                 loginAgente.setNombre(rs.getString(3));
                 
             }

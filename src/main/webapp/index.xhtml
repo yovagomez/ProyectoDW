@@ -108,6 +108,29 @@
             .links a{
                 margin-left: 4px;
             }
+            
+                 .centrado{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 400px;
+                height: 300px;
+                margin: auto;
+                margin-left: -200px;
+                margin-top: -150px;
+
+            }
+
+            .logo{
+                position: absolute;
+                top:25%;
+                left: 58%;
+                width:200px;
+                height: 180px;
+                margin: auto;
+                margin-left: -200px;
+                margin-top: -170px;
+            }
 
 
         </style>
@@ -115,57 +138,64 @@
     </h:head>
     <h:body>
 
-        <div class="container">
-            <div class="d-flex justify-content-center h-100">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Iniciar Sesión Agente</h3>
-                    </div>
-                    <h:form id="loginForm">
-                        <div class="card-body">
-                            <form> 
-                                <div class="input-group form-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                    </div>
-                                    <input type="text" class="form-control" id="usuario" placeholder="usuario" value="#{loginAgenteController.usuario}" required="true" autocomplete="true"/>
-                                    <b:column medium-screen="1" style-class="message">
-                                        <b:message for="usuario"/>
-                                    </b:column>
-
-                                </div>
-                                <div class="input-group form-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
-                                    </div>
-                                    <input type="password" class="form-control" id="contraseña" placeholder="contraseña" value="#{loginAgenteController.password}" required="true" autocomplete="true"/>
-                                    <b:column medium-screen="1" style-class="message">
-                                        <b:message for="contraseña"/>
-                                    </b:column>
-                                </div>
-                                <div class="row align-items-center remember">
-                                    <input type="checkbox">Recordarme</input>
-                                </div>
-                                <div class="form-group">
-                                    <input type="submit" value="Iniciar sesión" class="btn float-right login_btn" action="#{loginAgenteController.getLoginAgente()}"/>
-                                </div>
-                            </form>
-                        </div>
-
-                        <div class="card-header">
-                            <div class="d-flex justify-content-end social_icon">
-                                <span><i class="fab fa-facebook-square"></i></span>
-                                <span><i class="fab fa-google-plus-square"></i></span>
-                                <span><i class="fab fa-twitter-square"></i></span>
+                <div class="container">
+                    <div class="d-flex justify-content-center h-100">  <!-- cambia la dieccion del flexbox -->
+                        <div class="card">  <!-- Es un contenedor de contenido flexible--> 
+                            <div class="card-header">  <!--Agrega un encabezado dentro de la tarjeta -->
+                                <br>
+                                </br>
+                                <h3>Iniciar Sesión Agente</h3>
                             </div>
-
-
+                            <h:form id="loginForm">
+                                <div class="card-body">
+                                    <form> 
+                                        <div class="input-group form-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" id="usuario" placeholder="usuario" value="#{loginAgenteController.usuario}" required="true"/>
+                                            <b:column medium-screen="1" style-class="message">
+                                                <b:message for="usuario"/>
+                                            </b:column>
+        
+                                        </div>
+                                        <div class="input-group form-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                            </div>
+                                            <input type="password" class="form-control" id="clave" placeholder="contraseña" value="#{loginAgenteController.password}" required="true"/>
+                                            <b:column medium-screen="1" style-class="message">
+                                                <b:message for="clave"/>
+                                            </b:column>
+                                        </div>
+                                        <div class="row align-items-center remember">
+                                            <input type="checkbox">Recordarme</input>
+                                        </div>
+                                        <div class="form-group">
+                                            <b:column medium-screen="1"/>
+                                            <b:column medium-screen="10"/>
+                                            <input type="submit" value="Iniciar sesión" class="btn float-right login_btn" action="#{loginAgenteController.getLoginAgente()}"/>
+                                        </div>
+                                    </form>
+                                </div>
+        
+                                <div class="card-header">
+                                    <div class="d-flex justify-content-end social_icon">
+                                        <span><i class="fab fa-facebook-square"></i></span>
+                                        <span><i class="fab fa-google-plus-square"></i></span>
+                                        <span><i class="fab fa-twitter-square"></i></span>
+                                    </div>
+        
+        
+                                </div>
+                            </h:form>
                         </div>
-                    </h:form>
+                    </div>
                 </div>
-            </div>
-        </div>
+        
+        
 
     </h:body>
+
 </html>
 

@@ -15,12 +15,12 @@ public class Conexion {
     
     private static Conexion conexion;
     private static final String DBURL = "jdbc:mysql://localhost:3306/proyecto?zeroDateTimeBehavior=CONVERT_TO_NULL";
-    private static Connection conex = null;
+    private static Connection conn = null;
     
     private Conexion(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
-            conex=DriverManager.getConnection(DBURL, "proyecto", "proyecto123_");
+            conn=DriverManager.getConnection(DBURL, "proyecto", "proyecto_2021");
             
         } catch (ClassNotFoundException | SQLException
                 | NoSuchMethodException | SecurityException | InstantiationException
@@ -36,7 +36,7 @@ public class Conexion {
             conexion=new Conexion();
         }
         
-        return conex;
+        return conn;
     }
     
 }
