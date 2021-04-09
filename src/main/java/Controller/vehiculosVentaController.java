@@ -9,19 +9,23 @@ import Gestion.vehiculosVentaGestion;
 import Model.vehiculosVenta;
 import java.io.Serializable;
 import java.util.List;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 
 /**
  *
  * @author ASUS
  */
+@Named(value = "vehiculosVentaController")
+@SessionScoped
 public class vehiculosVentaController extends vehiculosVenta implements Serializable {
 
-    public vehiculosVentaController() {
+ public vehiculosVentaController() {
     }
     
-    public List<vehiculosVenta> getVehiculos(){
+     public List<vehiculosVenta> getVehiculos(){
         return vehiculosVentaGestion.getVentas();
     }
     
@@ -77,5 +81,5 @@ public class vehiculosVentaController extends vehiculosVenta implements Serializ
             return "edita.xhtml";
         }
     }
-    
+
 }

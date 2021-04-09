@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<h:head>
+        <title>Lista de Alquiler</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="./../resources/Templates/template1.xhtml">
+            <ui:define name="content">
+                <h:form>
+                    <b:container fluid="true">
+                        <b:panel title="Lista de Vehículos de Alquiler" look="primary" collapsible="false">
+                            <b:dataTable value="#{vehiculosAlquilerController.vehiculos}"
+                                         var="vehiculo"
+                                         excel="true"
+                                         csv="true"
+                                         pdf="true"
+                                         columnVisibility="true"
+                                         copy="true"
+                                         print="true"
+                                         >
+                                <b:dataTableColumn value="#{vehiculo.id}"
+                                                   label="ID"
+                                                   width="9%"/>
+                                <b:dataTableColumn value="#{vehiculo.idVehiculo}"
+                                                   label="IdVehículo"
+                                                   width="9%"/>
+                                <b:dataTableColumn value="#{vehiculo.placa}"
+                                                   label="Placa"
+                                                   width="9%"/>
+                                <b:dataTableColumn value="#{vehiculo.marca}"
+                                                   label="Marca"
+                                                   width="15%"/>
+                                <b:dataTableColumn value="#{vehiculo.modelo}"
+                                                   label="Modelo"
+                                                   width="15%"/>
+                                <b:dataTableColumn value="#{vehiculo.color}"
+                                                   label="Color"
+                                                   width="10%"/>
+                                <b:dataTableColumn value="#{vehiculo.anio}"
+                                                   label="Año"
+                                                   width="8%"
+                                                   />
+                                <b:dataTableColumn value="#{vehiculo.respaldo}"
+                                                   label="Respaldo"
+                                                   width="15%"/>       
+                            </b:dataTable>
+                            
+                            
+                        </b:panel>
+                    </b:container>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

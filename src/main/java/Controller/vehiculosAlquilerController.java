@@ -9,16 +9,20 @@ import Gestion.vehiculosAlquilerGestion;
 import Model.vehiculosAlquiler;
 import java.io.Serializable;
 import java.util.List;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 
 /**
  *
  * @author ASUS
  */
-public class vehiculosAlquilerController extends vehiculosAlquiler implements Serializable{
+@Named(value = "vehiculosAlquilerController")
+@SessionScoped
+public class vehiculosAlquilerController extends vehiculosAlquiler implements Serializable {
 
-    public vehiculosAlquilerController() {
+   public vehiculosAlquilerController() {
     }
     
      public List<vehiculosAlquiler> getVehiculos(){
@@ -80,3 +84,4 @@ public class vehiculosAlquilerController extends vehiculosAlquiler implements Se
     }
 
 }
+
