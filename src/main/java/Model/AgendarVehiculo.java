@@ -1,5 +1,8 @@
 package Model;
 
+import java.util.Date;
+import org.exolab.castor.types.DateTime;
+
 /**
  *
  * @author julian
@@ -8,15 +11,15 @@ public class AgendarVehiculo {
 
     private int id;
     private int numCita;
-    private String  fecha;
-    private String  hora;
+    private  Date fecha;
+    private Double  hora;
     private String descripcion;
     private int codigoCompra;
 
     public AgendarVehiculo() {
     }
 
-    public AgendarVehiculo(int id, int numCita, String  fecha, String  hora, String descripcion, int codigoCompra) {
+    public AgendarVehiculo(int id, int numCita, Date  fecha, Double  hora, String descripcion, int codigoCompra) {
         this.id = id;
         this.numCita = numCita;
         this.fecha = fecha;
@@ -41,19 +44,19 @@ public class AgendarVehiculo {
         this.numCita = numCita;
     }
 
-    public String  getFecha() {
+    public Date  getFecha() {
         return fecha;
     }
 
-    public void setFecha(String  fecha) {
+    public void setFecha(Date  fecha) {
         this.fecha = fecha;
     }
 
-    public String  getHora() {
+    public Double  getHora() {
         return hora;
     }
 
-    public void setHora(String hora) {
+    public void setHora(Double hora) {
         this.hora = hora;
     }
 

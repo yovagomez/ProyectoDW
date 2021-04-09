@@ -1,9 +1,7 @@
 package Controller;
 
 import Gestion.AgendarVehiculoGestion;
-import Gestion.FacturaGestion;
 import Model.AgendarVehiculo;
-import Model.Factura;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
@@ -45,12 +43,12 @@ public class AgendarVehiculoController extends AgendarVehiculo implements Serial
     }
      public String insertAgenda() {
         if (AgendarVehiculoGestion.insertAgenda(this)) {
-            return "lista.xhtml";
+            return "index.xhtml";
             
         }else{
             FacesMessage mensaje=new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error","Ocurrio un error, vuelva a intentarlo");
             FacesContext.getCurrentInstance().addMessage("editaAgendaForm:identificacion", mensaje);
-            return "edita.xhtml";
+            return "index.xhtml";
         }
     }
     

@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>AgendarVehiculo|FlipCars</title>
+    </h:head>
+    <body>
+
+        <ui:composition template="./../resources/Templates/template1.xhtml">
+
+            <ui:define name="top">
+                <b:navBar id="nav" style="background: #CB4335">
+                    <b:navbarLinks pull="right">
+<!--                        <b:image library="images" name="fondo.png" style="height: 75px"/>-->
+                    </b:navbarLinks>
+                    <b:navLink value="Inicio" href="#{request.contextPath}/faces/inicio.xhtml" style="color:white"></b:navLink>
+<!--                    <b:navLink value="Venta" href="#{request.contextPath}/faces/inicio.xhtml" style="color:white"></b:navLink>-->
+<!--                    <b:navLink value="Alquiler" href="#{request.contextPath}/faces/inicio.xhtml" style="color:white"></b:navLink>-->
+                </b:navBar>
+            </ui:define>
+
+            <ui:define name="content">
+                 <h:form id="agendarVehiculoForm"> <!-- Agregar al controller usuario el message -->
+                    <b:container fluid="true">
+                        <b:panel title="Agendar Vehiculo" look="danger">
+                                                        <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Id" for="id"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder=""
+                                                 required="true"                                                 
+                                                 id="id"
+                                                 value="#{agendarVehiculoController.id}"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Numero de Cita" for="numCita"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder=""
+                                                 required="true"                                                 
+                                                 id="numCita"
+                                                 value="#{agendarVehiculoController.numCita}"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                            <b:column medium-screen="2">
+                                    <h:outputLabel value="Fecha de la cita" for="fecha"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:datepicker placeholder=""
+                                                 required="true"                                                 
+                                                 id="fecha"
+                                                 value="#{agendarVehiculoController.fecha}"/>
+                                </b:column>
+                                </b:row>
+                                <b:row>
+                            <b:column medium-screen="2">
+                                    <h:outputLabel value="Hora de la cita" for="hora"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder=""
+                                                 required="true"                                                 
+                                                 id="hora"
+                                                 value="#{agendarVehiculoController.hora}"/>
+                                </b:column>
+                                </b:row>
+                                   <b:row>
+                            <b:column medium-screen="2">
+                                    <h:outputLabel value="Descripcion" for="descripcion"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder=""
+                                                 required="true"                                                 
+                                                 id="descripcion"
+                                                 value="#{agendarVehiculoController.descripcion}"/>
+                                </b:column>
+                                </b:row>
+                                                        <b:row>
+                            <b:column medium-screen="2">
+                                    <h:outputLabel value="codigo de compra" for="CodigoCompra"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder=""
+
+                                                 required="true"                                                 
+                                                 id="codigoCompra"
+                                                 value="#{agendarVehiculoController.codigoCompra}"/>
+                                </b:column>
+                                </b:row>
+                            
+                            <b:commandButton value="Ingresar Cita"
+                                             action="#{agendarVehiculoController.insertAgenda()}"
+                                             look="danger">
+                                
+                            </b:commandButton >
+                           
+                        </b:panel>
+                    </b:container>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

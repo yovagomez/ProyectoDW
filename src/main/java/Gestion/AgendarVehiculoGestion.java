@@ -1,11 +1,11 @@
 package Gestion;
 
-import Gestion.FacturaGestion;
-import Gestion.FacturaGestion;
+
+
 import Model.AgendarVehiculo;
-import Model.Compra;
+
 import Model.Conexion;
-import Model.Factura;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -33,8 +33,8 @@ public class AgendarVehiculoGestion {
                 lista_agendas.add(new AgendarVehiculo(
                         result.getInt(1),
                         result.getInt(2),
-                        result.getString(3),
-                        result.getString(4),
+                        result.getDate(3),
+                        result.getDouble(4),
                         result.getString (5),
                         result.getInt(6)));
                 
@@ -57,8 +57,8 @@ public class AgendarVehiculoGestion {
                 agenda=new AgendarVehiculo(
                         result.getInt(1),
                         result.getInt(2),
-                        result.getString(3),
-                        result.getString(4),
+                        result.getDate(3),
+                        result.getDouble(4),
                         result.getString(5),
                         result.getInt(6));
                 
@@ -74,8 +74,8 @@ public class AgendarVehiculoGestion {
                PreparedStatement sentencia=Conexion.getConexion().prepareStatement(INSERT_Agenda);
                sentencia.setInt(1, agenda.getId());
                sentencia.setInt(2, agenda.getNumCita());
-               sentencia.setString(3, agenda.getFecha());
-               sentencia.setString(4, agenda.getHora());
+               sentencia.setObject(3, agenda.getFecha());
+               sentencia.setDouble(4, agenda.getHora());
                sentencia.setString(5, agenda.getDescripcion());
                sentencia.setInt(6, agenda.getCodigoCompra());
                
@@ -92,8 +92,8 @@ public class AgendarVehiculoGestion {
                PreparedStatement sentencia=Conexion.getConexion().prepareStatement(UPDATE_Agenda);
                sentencia.setInt(1, agenda.getId());
                sentencia.setInt(2, agenda.getNumCita());
-               sentencia.setString(3, agenda.getFecha());
-               sentencia.setString(4, agenda.getHora());
+               sentencia.setObject(3, agenda.getFecha());
+               sentencia.setDouble(4, agenda.getHora());
                sentencia.setString(5, agenda.getDescripcion());
                sentencia.setInt(6, agenda.getCodigoCompra());
                
