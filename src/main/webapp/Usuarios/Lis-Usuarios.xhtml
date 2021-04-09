@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <h:head>
+        <title>Lista de Usuarios en el Sistema</title>
+    </h:head>
+
+    <h:body>
+        <ui:composition template="./../resources/templates/template1.xhtml">
+            <ui:define name="content">
+                <h:form>
+                    <b:container fluid="true">
+                        <b:panel title="Lista de Usuarios" 
+                                 icon-awesome="fa-user-circle"
+                                 collapsible="false">
+                            <b:dataTable value="#{usuarioController.usuarios}"
+                                         var="usuario">
+                                <b:dataTableColumn style="text-align: center" 
+                                                   value="#{usuario.nombre}"
+                                                   label="Nombre"
+                                                   width="10%"/>
+                                <b:dataTableColumn style="text-align: center"
+                                                   value="#{usuario.apellido1}"
+                                                   label="Primer Apellido"
+                                                   width="10%"/>
+                                <b:dataTableColumn style="text-align: center"
+                                                   value="#{usuario.apellido2}"
+                                                   label="Segundo Apellido"
+                                                   width="10%"/>
+                                <b:dataTableColumn style="text-align: center" 
+                                                   value="#{usuario.correo}"
+                                                   label="Correo"
+                                                   width="10%"/>
+                            </b:dataTable>
+                            <b:commandButton look="warning"
+                                             icon-awesome="fa-file-o"
+                                             value="Crear un Respaldo" 
+                                             action="#"/>
+                        </b:panel>
+                    </b:container>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

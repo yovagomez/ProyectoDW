@@ -16,20 +16,54 @@
 
         <div id="top" class="top">
             <ui:insert name="top">
-                <b:navBar id="nav" style="background: black">
+                <b:navBar id="nav" style="border-color: #a80000 ; background: #a80000">
                     <b:navbarLinks pull="right">
                         <b:image library="images" name="logo.png" style="height: 75px"/>
                     </b:navbarLinks>
-                    <b:navLink value="Inicio" href="#{request.contextPath}/faces/inicio.xhtml" style="color:white"></b:navLink>
+
+                    <b:navbarLinks pull="left">
+                        <b:navLink value="Inicio" 
+                                   href="#{request.contextPath}/faces/inicio.xhtml" 
+                                   style="color:white ; margin: 5px auto ;
+                                   font-size: 22px"/>
+                    </b:navbarLinks>
+
+                    <b:navbarLinks>
+                        <b:dropMenu value="Planillas" icon-awesome="fa-list" 
+                                    style="color: white ; margin: 5px auto ;
+                                    font-size: 18px">
+                            <b:navLink value="Planilla Empleados" 
+                                       icon-awesome="fa-address-book"
+                                       style="color: black"
+                                       href="#{request.contextPath}/faces/Agentes/Pla-Empleados.xhtml"/>
+                            <b:navLink value="Lista de Usuarios" 
+                                       icon-awesome="fa-user-circle"
+                                       style="color: black"
+                                       href="#{request.contextPath}/faces/Usuarios/Lis-Usuarios.xhtml"/>
+                        </b:dropMenu>
+                    </b:navbarLinks>
+
 <!--                    <b:navLink value="Venta" href="#{request.contextPath}/faces/inicio.xhtml" style="color:white"></b:navLink>-->
 <!--                    <b:navLink value="Alquiler" href="#{request.contextPath}/faces/inicio.xhtml" style="color:white"></b:navLink>-->
-                    
                 </b:navBar>
             </ui:insert>
         </div>
 
         <div id="content" class="center_content">
             <ui:insert name="content">Content</ui:insert>
+        </div>
+
+        <div id="bottom">
+            <ui:insert name="bottom">
+                <h5 style="text-align: center ; color:white">
+                    Flip Cars CR S.A © 2021</h5>
+                <h5 style="text-align: center ; color:white">
+                    Code licensed under NetBeans 12.2</h5>
+                <h5 style="text-align: center ; color:white">
+                    Flip Cars System licensed under Asociación Flip S.A</h5>
+                <h5 style="text-align: center ; color:white">
+                    Flip Cars System 2.7.1 · Created by Team GalloPinto Softwares</h5>
+            </ui:insert>
         </div>
 
     </h:body>

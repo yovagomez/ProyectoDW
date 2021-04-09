@@ -2,22 +2,55 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:b="http://bootsfaces.net/ui">
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <body>
 
-        <ui:composition template="./resources/Templates/template1.xhtml">
+        <ui:composition template="./resources/templates/template1.xhtml">
 
-            <ui:define name="top">
-                top
-            </ui:define>
-
+            <!-- Mensaje de Bienvenida -->
             <ui:define name="content">
-                content
-                <b:commandButton value="abc"></b:commandButton>
+                <h1>Bienvenido al Sistema de Flip Cars</h1>
+                <p>Es un gusto tenerlo como uno de nuestros colaboradores.
+                    Recuerde que su alma nos pertenece :)</p>
+
+                <!-- Carrucel de Imagenes -->
+                <h:outputScript library="bsf" name="js/carousel.js" />
+                <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width:1510px;height:755px">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+
+                    <!-- Marco de las Imagenes -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <h:graphicImage library="images" name="FH4.png" alt="Images1" style="width:1512px;height:755px"/>
+                        </div>
+
+                        <div class="item">
+                            <h:graphicImage library="images" name="FH4-2.png" alt="Images2" style="width:1512px;height:755px"/>
+                        </div>
+
+                        <div class="item">
+                            <h:graphicImage library="images" name="FH4-3.png" alt="Images3" style="width:1512px;height:755px" />
+                        </div>
+                    </div>
+
+                    <!-- Controles Derecha e Izquierda -->
+                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
             </ui:define>
-
         </ui:composition>
-
     </body>
 </html>
