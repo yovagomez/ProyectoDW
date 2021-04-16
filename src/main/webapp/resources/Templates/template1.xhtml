@@ -16,21 +16,15 @@
 
         <div id="top" class="top">
             <ui:insert name="top">
-                <b:navBar id="nav" style="border-color: #a80000 ; background: #a80000">
-                    <b:navbarLinks pull="right">
-                        <b:image library="images" name="logo.png" style="height: 75px"/>
-                    </b:navbarLinks>
-
+                <b:navBar id="nav" style=" background: #878787">   
                     <b:navbarLinks pull="left">
-                        <b:navLink value="Inicio" 
-                                   href="#{request.contextPath}/faces/inicio.xhtml" 
-                                   style="color:white ; margin: 5px auto ;
-                                   font-size: 22px"/>
+                        <b:image id="image" library="images" name="logo.png" style="height: 75px"/>
                     </b:navbarLinks>
 
-                    <b:navbarLinks>
+
+                    <b:navbarLinks pull="right">
                         <b:dropMenu value="Planillas" icon-awesome="fa-list" 
-                                    style="color: white ; margin: 5px auto ;
+                                    style="color: black ; margin: 5px auto ;
                                     font-size: 18px">
                             <b:navLink value="Planilla Empleados" 
                                        icon-awesome="fa-address-book"
@@ -53,7 +47,7 @@
             <ui:insert name="content">Content</ui:insert>
         </div>
 
-        <div id="bottom">
+        <div id="bottom" style="background: #3b3a3a">
             <ui:insert name="bottom">
                 <h5 style="text-align: center ; color:white">
                     Flip Cars CR S.A © 2021</h5>

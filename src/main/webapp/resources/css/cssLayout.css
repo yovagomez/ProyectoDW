@@ -8,7 +8,7 @@
 
 #bottom {
     position: relative;
-    background-color: #a80000;
+    background-color: #000000;
     padding: 5px;
     margin: 10px 0px 0px 0px;
 }
@@ -54,15 +54,19 @@
 }
 
 #top a:link, #top a:visited {
-  color: #045491;
-  font-weight : bold;
-  text-decoration: none;
+    color: #045491;
+    font-weight : bold;
+    text-decoration: none;
 }
 
 #top a:link:hover, #top a:visited:hover  {
-  color: black;
-  font-weight : bold;
-  text-decoration : underline;
+    color: black;
+    font-weight : bold;
+    text-decoration : underline;
 }
 
+#image:hover {
+    background-size: cover;
+    filter:brightness(0.4);
+}
 

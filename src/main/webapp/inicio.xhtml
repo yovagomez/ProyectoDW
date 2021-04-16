@@ -4,20 +4,25 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:b="http://bootsfaces.net/ui"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <h:outputStylesheet name="cssLayout.css" library="css"/>
+        <title>FlipCars</title>
+    </h:head>
 
     <body>
-
+        
         <ui:composition template="./resources/templates/template1.xhtml">
 
             <!-- Mensaje de Bienvenida -->
-            <ui:define name="content">
-                <h1>Bienvenido al Sistema de Flip Cars</h1>
+            
+            <ui:define name="content" class="fondo">
+                <h1 style="text-align: center">Bienvenido al Sistema de Flip Cars</h1>
                 <p>Es un gusto tenerlo como uno de nuestros colaboradores.
                     Recuerde que su alma nos pertenece :)</p>
 
                 <!-- Carrucel de Imagenes -->
                 <h:outputScript library="bsf" name="js/carousel.js" />
-                <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width:1510px;height:755px">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel" style="position: relative">
                     <!-- Indicators -->
                     <ol class="carousel-indicators">
                         <li data-target="#myCarousel" data-slide-to="0"></li>
@@ -28,15 +33,15 @@
                     <!-- Marco de las Imagenes -->
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
-                            <h:graphicImage library="images" name="FH4.png" alt="Images1" style="width:1512px;height:755px"/>
+                            <h:graphicImage library="images" name="FH4.png" alt="Images1" style="position: relative"/> <!-- background-size: cover; filter:brightness(0.4) -->
                         </div>
 
                         <div class="item">
-                            <h:graphicImage library="images" name="FH4-2.png" alt="Images2" style="width:1512px;height:755px"/>
+                            <h:graphicImage library="images" name="FH4-2.png" alt="Images2" style="position: relative"/>
                         </div>
 
                         <div class="item">
-                            <h:graphicImage library="images" name="FH4-3.png" alt="Images3" style="width:1512px;height:755px" />
+                            <h:graphicImage library="images" name="FH4-3.png" alt="Images3" style="position: relative"/>
                         </div>
                     </div>
 

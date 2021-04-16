@@ -9,130 +9,60 @@
         <title>Factura|FlipCars</title>
     </h:head>
 
-    <body>
+    <h:body>
 
         <ui:composition template="./../resources/Templates/template1.xhtml">
 
-            <ui:define name="top">
-                <b:navBar id="nav" style="background: #073d61">
+<!--            <ui:define name="top">
+                <b:navBar id="nav" style="background: #a80000">
                     <b:navbarLinks pull="right">
-<!--                        <b:image library="images" name="fondo.png" style="height: 75px"/>-->
+                                                <b:image library="images" name="fondo.png" style="height: 75px"/>
                     </b:navbarLinks>
                     <b:navLink value="Inicio" href="#{request.contextPath}/faces/inicio.xhtml" style="color:white"></b:navLink>
-<!--                    <b:navLink value="Venta" href="#{request.contextPath}/faces/inicio.xhtml" style="color:white"></b:navLink>-->
-<!--                    <b:navLink value="Alquiler" href="#{request.contextPath}/faces/inicio.xhtml" style="color:white"></b:navLink>-->
+                    <b:navLink value="Venta" href="#{request.contextPath}/faces/inicio.xhtml" style="color:white"></b:navLink>
+                    <b:navLink value="Alquiler" href="#{request.contextPath}/faces/inicio.xhtml" style="color:white"></b:navLink>
                 </b:navBar>
-            </ui:define>
+            </ui:define>-->
 
             <ui:define name="content">
-                <h:form id="editaFacturaForm"> <!-- Agregar al controller usuario el message -->
+                <h:form id="editaFacturaForm"> 
                     <b:container fluid="true">
-                        <b:panel title="EDITA FACTURA" look="primary">
-                            <b:row tooltip="ID Factura">
-                                <b:column medium-screen="2">
-                                    <h:outputLabel value="ID"
-                                                   for="id"/>
-                                </b:column>
-                                <b:column medium-screen="4">
-                                    <b:inputText placeholder="ID"
-                                                 id="id"
-                                                 readonly="true"
-                                                 value="#{facturaController.id}"/>
-                                </b:column>
-                                <b:column medium-screen="6" style-class="message">
-                                    <b:message for="id"/>
-                                </b:column>
-                            </b:row>
-                            <b:row tooltip="Digite el ID Usuario">
-                                <b:column medium-screen="2">
-                                    <h:outputLabel value="ID Usuario"
-                                                   for="idUsuario"/>
-                                </b:column>
-                                <b:column medium-screen="4">
-                                    <b:inputText placeholder="ID usuario"
-                                                 id="idUsuario"
-                                                 readonly="true"
-                                                 value="#{facturaController.idUsuario}"/>
-                                </b:column>
-                                <b:column medium-screen="6" style-class="message">
-                                    <b:message for="idUsuario"/>
-                                </b:column>
-                            </b:row>
-                            <b:row tooltip="Digite el ID Agente">
-                                <b:column medium-screen="2">
-                                    <h:outputLabel value="ID Agente"
-                                                   for="idAgente"/>
-                                </b:column>
-                                <b:column medium-screen="4">
-                                    <b:inputText placeholder="ID agente"
-                                                 id="idAgente"
-                                                 readonly="true"
-                                                 value="#{facturaController.idAgente}"/>
-                                </b:column>
-                                <b:column medium-screen="6" style-class="message">
-                                    <b:message for="idAgente"/>
-                                </b:column>
-                            </b:row>
-                            <b:row tooltip="Digite el ID Vehiculo">
-                                <b:column medium-screen="2">
-                                    <h:outputLabel value="ID Vehiculo"
-                                                   for="idVehiculo"/>
-                                </b:column>
-                                <b:column medium-screen="4">
-                                    <b:inputText placeholder="ID vehiculo"
-                                                 id="idVehiculo"
-                                                 readonly="true"
-                                                 value="#{facturaController.idVehiculo}"/>
-                                </b:column>
-                                <b:column medium-screen="6" style-class="message">
-                                    <b:message for="idVehiculo"/>
-                                </b:column>
-                            </b:row>
-                            <b:row tooltip="Digite la fecha">
-                                <b:column medium-screen="2">
-                                    <h:outputLabel value="Fecha"
-                                                   for="fecha"/>
-                                </b:column>
-                                <b:column medium-screen="4">
-                                    <b:inputText placeholder="fecha"
-                                                 id="fecha"
-                                                 readonly="true"
-                                                 value="#{facturaController.fec_hor}"/>
-                                </b:column>
-                                <b:column medium-screen="6" style-class="message">
-                                    <b:message for="fecha"/>
-                                </b:column>
-                            </b:row>
-                            <b:row tooltip="Total">
-                                <b:column medium-screen="2">
-                                    <h:outputLabel value="Total"
-                                                   for="total"/>
-                                </b:column>
-                                <b:column medium-screen="4">
-                                    <b:inputText placeholder="total"
-                                                 id="total"
-                                                 readonly="true"
-                                                 value="#{facturaController.total}"/>
-                                </b:column>
-                                <b:column medium-screen="6" style-class="message">
-                                    <b:message for="total"/>
-                                </b:column>
-                            </b:row>
-                            <b:row tooltip="Descripción de la compra">
-                                <b:column medium-screen="2">
-                                    <h:outputLabel value="Descripción"
-                                                   for="descripcion"/>
-                                </b:column>
-                                <b:column medium-screen="4">
-                                    <b:inputText placeholder="descripción"
-                                                 id="descripcion"
-                                                 readonly="true"
-                                                 value="#{facturaController.descripcion}"/>
-                                </b:column>
-                                <b:column medium-screen="6" style-class="message">
-                                    <b:message for="descripcion"/>
-                                </b:column>
-                            </b:row>
+                        <b:panel title="LISTA FACTURAS" look="primary" collapsible="flase">
+                            <b:dataTable value="#{facturaController.facturas}"
+                                         var="factura"
+                                         excel="true"
+                                         pdf="true"
+                                         columnVisibility="true"
+                                         copy="true">
+                                <b:dataTableColumn value="#{factura.idUsuario}"
+                                                   label="Cédula"
+                                                   width="9%"/>
+                                <b:dataTableColumn value="#{factura.idAgente}"
+                                                   label="Cédula Agente"
+                                                   width="9%"/>
+                                <b:dataTableColumn value="#{factura.idVehiculo}"
+                                                   label="Código Vehículo"
+                                                   width="5%"/>
+                                <b:dataTableColumn value="#{factura.fec_hor}"
+                                                   label="Fecha"
+                                                   width="10%"/>
+                                <b:dataTableColumn value="#{factura.total}"
+                                                   label="Total"
+                                                   width="7%"/>
+                                <b:dataTableColumn value="#{factura.descripcion}"
+                                                   label="Descripción"
+                                                   width="12%"/>
+                                <b:dataTableColumn style="text-align: center"
+                                                   label="Accion"
+                                                   width="10%">
+                                    <b:commandButton value="Ver"
+                                                     action="#{reporteController.verFactura()}"/>
+                                    <b:commandButton value="Descargar"
+                                                     action="#{(reporteController.facturaPDF())}"/>
+                                </b:dataTableColumn>  
+                            </b:dataTable>
+
+
                         </b:panel>
                     </b:container>
                 </h:form>
@@ -141,5 +71,5 @@
 
         </ui:composition>
 
-    </body>
+    </h:body>
 </html>
