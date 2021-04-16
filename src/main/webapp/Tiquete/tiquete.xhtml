@@ -1,18 +1,60 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
 
     <body>
 
         <ui:composition template="./../resources/Templates/template1.xhtml">
 
-            <ui:define name="top">
+<!--            <ui:define name="top">
                 
-            </ui:define>
+            </ui:define>-->
 
             <ui:define name="content">
-                content
+                <h:form id="editaTiqueteForm"> 
+                    <b:container fluid="true">
+                        <b:panel title="LISTA DE TIQUETES" collapsible="flase">
+                            <b:dataTable value="#{facturaController.facturas}"
+                                         var="tiquete"
+                                         excel="true"
+                                         pdf="true"
+                                         columnVisibility="true"
+                                         copy="true">
+                                <b:dataTableColumn value="#{tiquete.idUsuario}"
+                                                   label="Cédula"
+                                                   width="9%"/>
+                                <b:dataTableColumn value="#{tiquete.idAgente}"
+                                                   label="Cédula Agente"
+                                                   width="9%"/>
+                                <b:dataTableColumn value="#{tiquete.idVehiculo}"
+                                                   label="Código Vehículo"
+                                                   width="5%"/>
+                                <b:dataTableColumn value="#{tiquete.fec_hor}"
+                                                   label="Fecha"
+                                                   width="10%"/>
+                                <b:dataTableColumn value="#{tiquete.total}"
+                                                   label="Total"
+                                                   width="7%"/>
+                                <b:dataTableColumn value="#{tiquete.descripcion}"
+                                                   label="Descripción"
+                                                   width="12%"/>
+                                <b:dataTableColumn style="text-align: center"
+                                                   label="Accion"
+                                                   width="10%">
+                                    <b:commandButton value="Ver"
+                                                     action="#{reporteController.verTiquete()}"/>
+                                    <b:commandButton value="Descargar"
+                                                     action="#{(reporteController.tiquetePDF())}"/>
+                                </b:dataTableColumn>  
+                            </b:dataTable>
+
+
+                        </b:panel>
+                    </b:container>
+                </h:form>
             </ui:define>
 
         </ui:composition>
