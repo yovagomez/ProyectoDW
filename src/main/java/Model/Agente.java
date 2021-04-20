@@ -12,17 +12,23 @@ public class Agente {
     private String nombre;
     private String apellido1;
     private String apellido2;
+    private String fechaNaci;
+    private String correo;
+    private String tel;
 
     public Agente() {
-    }//Fin constructor vacio
+    }
 
-    public Agente(int id, String idAgente, String nombre, String apellido1, String apellido2) {
+    public Agente(int id, String idAgente, String nombre, String apellido1, String apellido2, String fechaNaci, String correo, String tel) {
         this.id = id;
         this.idAgente = idAgente;
         this.nombre = nombre;
         this.apellido1 = apellido1;
         this.apellido2 = apellido2;
-    }//Fin constructor
+        this.fechaNaci = fechaNaci;
+        this.correo = correo;
+        this.tel = tel;
+    }
 
     public int getId() {
         return id;
@@ -62,5 +68,29 @@ public class Agente {
 
     public void setApellido2(String apellido2) {
         this.apellido2 = apellido2;
+    }
+
+    public String getFechaNaci() {
+        return fechaNaci;
+    }
+
+    public void setFechaNaci(String fechaNaci) {
+        this.fechaNaci = fechaNaci;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
     }
 }//Fin clase

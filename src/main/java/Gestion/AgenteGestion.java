@@ -1,4 +1,5 @@
 package Gestion;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,14 +14,14 @@ import Model.Agente;
  * @author Daniel
  */
 public class AgenteGestion {
-    
+
     //Variables encargadas de llamar la Base de Datos Agente
-    private static final String SQL_GETAGENTES="SELECT * FROM agente";
-    private static final String SQL_GETAGENTE="SELECT * FROM agente where id=? and idAgente=?";
-    private static final String SQL_INSERTAGENTES="INSERT into agente(idAgente, nombre, apellido1, apellido2) VALUES (?,?,?,?)";
-    private static final String SQL_UPDATEAGENTES="UPDATE agente set nombre=?, apellido1=?, apellido2=? where id=? and idAgente=?";
-    private static final String SQL_DELETEAGENTES="DELETE FROM agente where id=? and idAgente=?";
-    
+    private static final String SQL_GETAGENTES = "SELECT * FROM agente";
+    private static final String SQL_GETAGENTE = "SELECT * FROM agente where id=? and idAgente=?";
+    private static final String SQL_INSERTAGENTES = "INSERT into agente(idAgente, nombre, apellido1, apellido2, fechaNaci, correo, tel) VALUES (?,?,?,?,?,?,?)";
+    private static final String SQL_UPDATEAGENTES = "UPDATE agente set nombre=?, apellido1=?, apellido2=?, correo=?, tel=? where id=? and idAgente=?";
+    private static final String SQL_DELETEAGENTES = "DELETE FROM agente where id=? and idAgente=?";
+
     //Metodo encargado de llamar a todos los Agentes
     public static ArrayList<Agente> getAgentes() {
         ArrayList<Agente> lista = new ArrayList<>();
@@ -34,7 +35,10 @@ public class AgenteGestion {
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
-                        rs.getString(5)));
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8)));
             }
         } catch (SQLException ex) {
             Logger.getLogger(AgenteGestion.class.getName())
@@ -42,7 +46,7 @@ public class AgenteGestion {
         }
         return lista;
     }//Fin metodo de llamar todos los Agentes
-    
+
     //Metodo encargado de llamar a un Agente
     public static Agente getAgente(int id, String idAgente) {
         Agente agente = null;
@@ -58,7 +62,10 @@ public class AgenteGestion {
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
-                        rs.getString(5));
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8));
             }
         } catch (SQLException ex) {
             Logger.getLogger(AgenteGestion.class.getName())
@@ -66,7 +73,7 @@ public class AgenteGestion {
         }
         return agente;
     }//Fin metodo llamar un Agente
-    
+
     //Metodo encargado de realizar un INSERT en Agente
     public static boolean insertAgente(Agente agente) {
         try {
@@ -76,6 +83,9 @@ public class AgenteGestion {
             sentencia.setString(2, agente.getNombre());
             sentencia.setString(3, agente.getApellido1());
             sentencia.setString(4, agente.getApellido2());
+            sentencia.setString(5, agente.getFechaNaci());
+            sentencia.setString(6, agente.getCorreo());
+            sentencia.setString(7, agente.getTel());
             return sentencia.executeUpdate() > 0;
         } catch (SQLException ex) {
             Logger.getLogger(AgenteGestion.class.getName())
@@ -83,7 +93,7 @@ public class AgenteGestion {
         }
         return false;
     }//Fin metodo encargado de el INSERT
-    
+
     //Metodo encargado de realizar un Update en Agente
     public static boolean updateAgente(Agente agente) {
         try {
@@ -92,8 +102,10 @@ public class AgenteGestion {
             sentencia.setString(1, agente.getNombre());
             sentencia.setString(2, agente.getApellido1());
             sentencia.setString(3, agente.getApellido2());
-            sentencia.setInt(4, agente.getId());
-            sentencia.setString(5, agente.getIdAgente());
+            sentencia.setString(4, agente.getCorreo());
+            sentencia.setString(5, agente.getTel());
+            sentencia.setInt(6, agente.getId());
+            sentencia.setString(7, agente.getIdAgente());
             return sentencia.executeUpdate() > 0;
         } catch (SQLException ex) {
             Logger.getLogger(AgenteGestion.class.getName())
@@ -101,7 +113,7 @@ public class AgenteGestion {
         }
         return false;
     }//Fin metodo encargado de el Update
-    
+
     //Metodo encargado de realizar un DELETE en Agente
     public static boolean deleteAgente(Agente agente) {
         try {

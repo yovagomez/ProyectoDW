@@ -39,6 +39,9 @@ public class AgenteController extends Agente implements Serializable {
             this.setNombre(elAgente.getNombre());
             this.setApellido1(elAgente.getApellido1());
             this.setApellido2(elAgente.getApellido2());
+            this.setFechaNaci(elAgente.getFechaNaci());
+            this.setCorreo(elAgente.getCorreo());
+            this.setTel(elAgente.getTel());
             return "edita.xhtml";
         } else {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
@@ -51,36 +54,36 @@ public class AgenteController extends Agente implements Serializable {
     //Metodo encargado del INSERT en Agente
     public String insertAgente() {
         if (AgenteGestion.insertAgente(this)) {
-            return "list.xhtml";
+            return "Pla-Empleados.xhtml";
         } else {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
-                    "Ocurrio un error al insertar un nuevo estudiante");
+                    "Ocurrio un error al insertar un nuevo empleado");
             FacesContext.getCurrentInstance().addMessage("traerAgenteForm:identificacion", msg);
-            return "edita.xhtml";
+            return "Añdr-Emp.xhtml";
         }
     }//Fin metodo encargado del INSERT
     
     //Metodo encargado del Update en Agente
     public String updateAgente() {
         if (AgenteGestion.updateAgente(this)) {
-            return "list.xhtml";
+            return "Pla-Empleados.xhtml";
         } else {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
-                    "Ocurrio un error al modificar el estudiante");
+                    "Ocurrio un error al modificar el empleado");
             FacesContext.getCurrentInstance().addMessage("traerAgenteForm:identificacion", msg);
-            return "edita.xhtml";
+            return "Añdr-Emp.xhtml";
         }
     }//Fin Metodo encargado del Update
     
     //Metodo encargado del Delete en Agente
     public String deleteAgente() {
         if (AgenteGestion.deleteAgente(this)) {
-            return "list.xhtml";
+            return "Pla-Empleados.xhtml";
         } else {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
-                    "Ocurrio un error al eliminar el estudiante");
+                    "Ocurrio un error al eliminar el empleado");
             FacesContext.getCurrentInstance().addMessage("traerAgenteForm:identificacion", msg);
-            return "edita.xhtml";
+            return "Pla-Empleados.xhtml";
         }
     }//Fin metodo encargado del DELETE
 }//Fin clase 

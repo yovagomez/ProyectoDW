@@ -16,20 +16,19 @@ import javax.faces.context.FacesContext;
 @SessionScoped
 public class LoginAgenteController extends LoginAgente implements Serializable {
 
-    
     public LoginAgenteController() {
     }
-    
-    public String getLoginAgente (){
+
+    public String getLoginAgente() {
         LoginAgente loginAgente = LoginAgenteGestion.getLoginAgente(this.getUsuario(), this.getPassword());
         if (loginAgente != null) {
             this.setNombre(loginAgente.getNombre());
+            this.setIdRol(loginAgente.getIdRol());
             return "inicio.xhtml";
-        }else{
-            FacesMessage mensage = new FacesMessage(FacesMessage.SEVERITY_ERROR,"Error","Usuario o contraseña incorrecta, vuelva a intentarlo");
+        } else {
+            FacesMessage mensage = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Usuario o contraseña incorrecta, vuelva a intentarlo");
             FacesContext.getCurrentInstance().addMessage("loginForm:clave", mensage);
             return "index.xhtml";
         }
     }
-    
 }

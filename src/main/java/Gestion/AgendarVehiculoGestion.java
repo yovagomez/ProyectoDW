@@ -8,6 +8,7 @@ import Model.Conexion;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -39,7 +40,7 @@ public class AgendarVehiculoGestion {
                         result.getInt(6)));
                 
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             Logger.getLogger(FacturaGestion.class.getName()).log(Level.SEVERE,null,e);
         }
         
@@ -63,7 +64,7 @@ public class AgendarVehiculoGestion {
                         result.getInt(6));
                 
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             Logger.getLogger(FacturaGestion.class.getName()).log(Level.SEVERE,null,e);
         }
         
@@ -81,7 +82,7 @@ public class AgendarVehiculoGestion {
                
                return sentencia.executeUpdate() > 0;
                
-           } catch (Exception e) {
+           } catch (SQLException e) {
                Logger.getLogger(FacturaGestion.class.getName()).log(Level.SEVERE,null,e);
            }
            
@@ -99,7 +100,7 @@ public class AgendarVehiculoGestion {
                
                return sentencia.executeUpdate() > 0;
                
-           } catch (Exception e) {
+           } catch (SQLException e) {
                Logger.getLogger(FacturaGestion.class.getName()).log(Level.SEVERE,null,e);
            }
            
@@ -113,7 +114,7 @@ public class AgendarVehiculoGestion {
                     
                     return sentencia.executeUpdate() > 0;
                     
-                } catch (Exception e) {
+                } catch (SQLException e) {
                     Logger.getLogger(FacturaGestion.class.getName()).log(Level.SEVERE, null,e);
                 }
                 

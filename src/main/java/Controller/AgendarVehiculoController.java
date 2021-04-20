@@ -43,12 +43,12 @@ public class AgendarVehiculoController extends AgendarVehiculo implements Serial
     }
      public String insertAgenda() {
         if (AgendarVehiculoGestion.insertAgenda(this)) {
-            return "index.xhtml";
+            return "principal.xhtml";
             
         }else{
             FacesMessage mensaje=new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error","Ocurrio un error, vuelva a intentarlo");
             FacesContext.getCurrentInstance().addMessage("editaAgendaForm:identificacion", mensaje);
-            return "index.xhtml";
+            return "principal.xhtml";
         }
     }
     

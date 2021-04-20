@@ -18,15 +18,16 @@
                                  collapsible="false">
                             <b:dataTable value="#{agenteController.agentes}"
                                          var="empleado"
-                                         excel="true"
-                                         pdf="true"
-                                         columnVisibility="true"
-                                         copy="true"
-                                         print="true"
+                                         columnVisibility="false"
+                                         excel="false"
+                                         pdf="false"
+                                         copy="false"
+                                         print="false"
+                                         style="position: relative"
                                          >
                                 <b:dataTableColumn style="text-align: center" 
                                                    value="#{empleado.idAgente}"
-                                                   label="Identificacion"
+                                                   label="Identificación"
                                                    width="10%"/>
                                 <b:dataTableColumn style="text-align: center" 
                                                    value="#{empleado.nombre}"
@@ -39,18 +40,39 @@
                                 <b:dataTableColumn style="text-align: center"
                                                    value="#{empleado.apellido2}"
                                                    label="Segundo Apellido"
-                                                   width="10%"/>                                
+                                                   width="10%"/>
+                                <b:dataTableColumn style="text-align: center"
+                                                   value="#{empleado.fechaNaci}"
+                                                   label="Fecha de Nacimiento"
+                                                   width="10%"/>
+                                <b:dataTableColumn style="text-align: center"
+                                                   value="#{empleado.correo}"
+                                                   label="Correo"
+                                                   width="10%"/>
+                                <b:dataTableColumn style="text-align: center"
+                                                   value="#{empleado.tel}"
+                                                   label="Segundo Apellido"
+                                                   width="10%"/>
+                                <b:dataTableColumn style="text-align: center"
+                                                   label="Gestión"
+                                                   width="10%">
+                                    <b:commandButton look="danger" 
+                                                     value="Eliminar"
+                                                     icon-awesome="fa-exclamation-triangle"
+                                                     action="#"/>
+                                </b:dataTableColumn>                                
                             </b:dataTable>
-                            <b:commandButton look="success" 
-                                             value="Añadir Empleado" action="#"/>
+                            <b:button look="success"
+                                      style="color:white"
+                                      icon-awesome="fa-user-plus"
+                                      value="Añadir Empleado" 
+                                      href="#{request.contextPath}/faces/Agentes/Añdr-Emp.xhtml"/>
                             <s/>
-                            <b:commandButton look="danger" 
-                                             value="Eliminar Empleado" action="#"/>
-                            <s/>
-                            <b:commandButton look="warning"
-                                             icon-awesome="fa-file-o"
-                                             value="Crear un Respaldo" 
-                                             action="#"/>
+                            <b:button look="warning"
+                                      style="color:white"
+                                      icon-awesome="fa-file-o"
+                                      value="Crear un Respaldo" 
+                                      href="#"/>
                         </b:panel>
                     </b:container>
                 </h:form>
