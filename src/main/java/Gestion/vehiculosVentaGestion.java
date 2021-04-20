@@ -7,6 +7,7 @@ package Gestion;
 
 import Model.Conexion;
 import Model.vehiculosVenta;
+import Model.ventasPorMarca;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,7 +26,7 @@ public class vehiculosVentaGestion {
     private static final String INSERT_VENTA = "insert into vehiculosventa(idVehiculo,marca,modelo,color,anio,respaldo) VALUES (?,?,?,?,?,?)";
     private static final String UPDATE_VENTA = "update vehiculosventa set marca=?, modelo=?, color=?, anio=?, respaldo=?, where id=? and idVehiculo=?";
     private static final String DELETE_VENTA = "delete from vehiculosventa where id=? and idVehiculo=?";
-
+    private static final String GET_MARCAS = "select marca, count(*) total from vehiculosVenta group by marca order by marca";
     public static ArrayList<vehiculosVenta> getVentas() {
         ArrayList<vehiculosVenta> lista_Ventas = new ArrayList<>();
         try {
@@ -49,6 +50,27 @@ public class vehiculosVentaGestion {
 
         return lista_Ventas;
     }
+    
+    
+    public static ArrayList<ventasPorMarca> getVentasPorMarca() {
+        ArrayList<ventasPorMarca> lista_Ventas = new ArrayList<>();
+        try {
+            PreparedStatement sentencia = Conexion.getConexion().prepareStatement(GET_MARCAS);
+            ResultSet result = sentencia.executeQuery();
+
+            while (result != null && result.next()) { 
+                lista_Ventas.add(new ventasPorMarca(
+                        result.getString(1),
+                        result.getInt(2)));
+
+            }
+        } catch (Exception e) {
+            Logger.getLogger(vehiculosVentaGestion.class.getName()).log(Level.SEVERE, null, e);
+        }
+
+        return lista_Ventas;
+    }
+
     
     public static vehiculosVenta getVenta(int id, int idVehiculo) {
         vehiculosVenta vehiculos = null;
