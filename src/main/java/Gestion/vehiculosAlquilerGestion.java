@@ -5,6 +5,7 @@
  */
 package Gestion;
 
+import Model.AlquilerPorMarca;
 import Model.Conexion;
 import Model.Tiquete;
 import Model.vehiculosAlquiler;
@@ -26,7 +27,7 @@ public class vehiculosAlquilerGestion {
     private static final String INSERT_ALQUILER = "insert into vehiculosalquiler(idVehiculo,placa,marca,modelo,color,anio,respaldo) VALUES (?,?,?,?,?,?,?)";
     private static final String UPDATE_ALQUILER = "update vehiculosalquiler set marca=?, modelo=?, color=?, anio=?, respaldo=?, where id=? and idVehiculo=?";
     private static final String DELETE_ALQUILER = "delete from vehiculosalquiler where id=? and idVehiculo=?";
-
+    private static final String GET_MARCAS = "select marca, count(*) total from vehiculosvehiculosAlquiler group by marca order by marca";
     public static ArrayList<vehiculosAlquiler> getAlquileres() {
         ArrayList<vehiculosAlquiler> lista_Alquileres = new ArrayList<>();
         try {
@@ -51,6 +52,27 @@ public class vehiculosAlquilerGestion {
 
         return lista_Alquileres;
     }
+    
+      public static ArrayList<AlquilerPorMarca> getAlquileresPorMarca() {
+        ArrayList<AlquilerPorMarca> lista_Alquileres = new ArrayList<>();
+        try {
+            PreparedStatement sentencia = Conexion.getConexion().prepareStatement(GET_MARCAS);
+            ResultSet result = sentencia.executeQuery();
+
+            while (result != null && result.next()) {
+                lista_Alquileres.add(new AlquilerPorMarca(
+                        result.getString(1),
+                        result.getInt(2)));
+
+            }
+        } catch (Exception e) {
+            Logger.getLogger(vehiculosAlquilerGestion.class.getName()).log(Level.SEVERE, null, e);
+        }
+
+        return lista_Alquileres;
+    }
+    
+    
     
     public static vehiculosAlquiler getAlquiler(int id, int idVehiculo) {
         vehiculosAlquiler vehiculos = null;
