@@ -6,22 +6,33 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Login Sistema Proyecto</title>
+
+        <!-- Diseño del Index -->
         <style>
+            html,body{
+                background-image: url('https://s1.1zoom.me/big0/775/Jaguar_Sunrises_and_sunsets_2018_F-Type__Chequered_557734_1280x853.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                height: 100%;
+            }
             .centrado{
                 position: absolute;
                 top: 50%;
                 left: 50%;
                 width: 400px;
-                height: 300px;
+                height: 0px;
                 margin: auto;
                 margin-left: -200px;
                 margin-top: -150px;
+                background-color: rgba(0,0,0,0.5);
             }
         </style>
+        <!-- Fin del diseño del Index -->
+        <!-- Inicio etiquetas del Index -->
     </h:head>
     <h:body>
         <h:form id="loginForm">
-            <b:panel title="Login FlipCars" look="warning" collapsed="false" style-class="centrado">
+            <b:panel title="Login del Sistema FlipCars" collapsible="false" style-class="centrado" style="text-align: center">
                 <b:row tooltip="Digite su nombre de Usuario">
                     <b:column medium-screen="1"/>
                     <b:column medium-screen="10"/>
@@ -38,14 +49,14 @@
                         <b:message for="usuario"/>
                     </b:column>
                 </b:row>
-                <b:row tooltip="Digite la Clave">
+                <b:row tooltip="Digite su Clave">
                     <b:column medium-screen="1"/>
                     <b:column medium-screen="10"/>
                     <b:inputSecret placeholder="Clave"
-                                 id="clave"
-                                 required="true"
-                                 autocomplete="true"
-                                 value="#{loginAgenteController.password}">
+                                   id="clave"
+                                   required="true"
+                                   autocomplete="true"
+                                   value="#{loginAgenteController.clave}">
                         <f:facet name="prepend">
                             <b:iconAwesome name="key"/>
                         </f:facet>
@@ -60,10 +71,11 @@
                     <b:commandButton value="Login"
                                      look="success"
                                      style="width:100%"
-                                 action="#{loginAgenteController.getLoginAgente()}"/>
+                                     action="#{loginAgenteController.getLoginAgente()}"/>
                 </b:row>
             </b:panel>
         </h:form>
     </h:body>
+    <!-- Fin etiquetas del Index -->
 </html>
 

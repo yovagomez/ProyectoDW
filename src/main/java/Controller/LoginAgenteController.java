@@ -20,10 +20,10 @@ public class LoginAgenteController extends LoginAgente implements Serializable {
     }
 
     public String getLoginAgente() {
-        LoginAgente loginAgente = LoginAgenteGestion.getLoginAgente(this.getUsuario(), this.getPassword());
-        if (loginAgente != null) {
-            this.setNombre(loginAgente.getNombre());
-            this.setIdRol(loginAgente.getIdRol());
+        LoginAgente login = LoginAgenteGestion.getLoginAgente(this.getUsuario(), this.getClave());
+        if (login != null) {
+            this.setNombre(login.getNombre());
+            this.setIdRol(login.getIdRol());
             return "inicio.xhtml";
         } else {
             FacesMessage mensage = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Usuario o contraseña incorrecta, vuelva a intentarlo");

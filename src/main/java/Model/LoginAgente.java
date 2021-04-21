@@ -7,16 +7,16 @@ package Model;
 public class LoginAgente {
     
     private String usuario;
-    private String password;
+    private String clave;
     private String nombre;
     private String idRol;
 
     public LoginAgente() {
     }
 
-    public LoginAgente(String usuario, String password, String nombre, String idRol) {
+    public LoginAgente(String usuario, String clave, String nombre, String idRol) {
         this.usuario = usuario;
-        this.password = password;
+        this.clave = clave;
         this.nombre = nombre;
         this.idRol = idRol;
     }
@@ -29,12 +29,12 @@ public class LoginAgente {
         this.usuario = usuario;
     }
 
-    public String getPassword() {
-        return password;
+    public String getClave() {
+        return clave;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setClave(String clave) {
+        this.clave = clave;
     }
 
     public String getNombre() {

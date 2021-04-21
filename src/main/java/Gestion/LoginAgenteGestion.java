@@ -16,28 +16,28 @@ import javax.faces.context.FacesContext;
  */
 public class LoginAgenteGestion {
 
-    private static final String SQL_GETLOGINAGENTE = "SELECT * FROM loginagente where usuario=? and password=MD5(?)";
+    private static final String SQLGETLOGIN = "Select * from loginagente where usuario=? and clave=MD5(?)";
 
-    public static LoginAgente getLoginAgente(String usuario, String password) {
-        LoginAgente loginAgente = null;
+    public static LoginAgente getLoginAgente(String usuario, String clave) {
+        LoginAgente login = null;
         try {
-            PreparedStatement sentencia = Conexion.getConexion().prepareStatement(SQL_GETLOGINAGENTE);
+            PreparedStatement sentencia = Conexion.getConexion().prepareStatement(SQLGETLOGIN);
             sentencia.setString(1, usuario);
-            sentencia.setString(2, password);
-            ResultSet rs = sentencia.executeQuery();
+            sentencia.setString(2, clave);
+            ResultSet st = sentencia.executeQuery();
 
-            if (rs.next()) {
-                loginAgente = new LoginAgente();
-                loginAgente.setUsuario(usuario);
-                loginAgente.setPassword(password);
-                loginAgente.setNombre(rs.getString(3));
-                loginAgente.setIdRol(rs.getString(4));
+            if (st.next()) {
+                login = new LoginAgente();
+                login.setUsuario(usuario);
+                login.setClave(clave);
+                login.setNombre(st.getString(3));
+                login.setIdRol(st.getString(4));
             }
         } catch (SQLException ex) {
             Logger.getLogger(LoginAgenteGestion.class.getName()).log(Level.SEVERE, null, ex);
             FacesMessage mensage = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Esta picha no sirve");
             FacesContext.getCurrentInstance().addMessage("loginForm:clave", mensage);
         }
-        return loginAgente;
+        return login;
     }
 }
