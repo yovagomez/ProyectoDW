@@ -28,12 +28,13 @@
             }
         </style>
         <!-- Fin del diseño del Index -->
+        
         <!-- Inicio etiquetas del Index -->
     </h:head>
     <h:body>
         <h:form id="loginForm">
             <b:panel title="Login del Sistema FlipCars" collapsible="false" style-class="centrado" style="text-align: center">
-                <b:row tooltip="Digite su nombre de Usuario">
+                <b:row>
                     <b:column medium-screen="1"/>
                     <b:column medium-screen="10"/>
                     <b:inputText placeholder="Usuario"
@@ -49,7 +50,7 @@
                         <b:message for="usuario"/>
                     </b:column>
                 </b:row>
-                <b:row tooltip="Digite su Clave">
+                <b:row>
                     <b:column medium-screen="1"/>
                     <b:column medium-screen="10"/>
                     <b:inputSecret placeholder="Clave"
@@ -65,7 +66,7 @@
                         <b:message for="clave"/>
                     </b:column>
                 </b:row >
-                <b:row tooltip="Click Para Hacer Login">
+                <b:row tooltip="Click para acceder">
                     <b:column medium-screen="1"/>
                     <b:column medium-screen="10"/>
                     <b:commandButton value="Login"

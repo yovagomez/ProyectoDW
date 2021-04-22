@@ -1,8 +1,9 @@
 package Model;
 
-import java.sql.Date;
+
 import java.sql.Timestamp;
-import org.exolab.castor.types.DateTime;
+import java.text.SimpleDateFormat;
+
 
 /**
  *
@@ -84,6 +85,14 @@ public class Factura {
 
     public void setId(int id) {
         this.id = id;
+    }
+    
+    //Metodo toString devuelve un Json
+    //Metodo Override: se utilizan cuando hay herencias, abstraccion y se sobreescribe para utilizarlo en otros metodos
+    public String toString() {
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        String fecha1 = format.format(this.fec_hor);
+        return "{\"Factura\":{\n\"Fecha Entrega\":\"" + fecha1 + "\"\n}\n}";
     }
     
 }

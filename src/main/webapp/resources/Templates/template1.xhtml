@@ -49,11 +49,13 @@
 
 
                         </b:dropMenu>
-
+                        <b:dropMenu value="${loginAgenteController.usuario}" iconAwesome="user" style="color: black; margin: 5px auto; font-family: Work Sans; font-size: 18px">
+                            <b:navLink value="Salir" style="color: black" href="#{request.contextPath}/faces/index.xhtml" ></b:navLink>
+                        </b:dropMenu>
                     </b:navbarLinks>
 
-                   <b:navLink value="Inicio" href="#{request.contextPath}/faces/inicio.xhtml" style="color:white"></b:navLink>
-<!--                    <b:navLink value="Alquiler" href="#{request.contextPath}/faces/inicio.xhtml" style="color:white"></b:navLink>-->
+                    <b:navLink value="Inicio" href="#{request.contextPath}/faces/inicio.xhtml" style="color:white"></b:navLink>
+ <!--                    <b:navLink value="Alquiler" href="#{request.contextPath}/faces/inicio.xhtml" style="color:white"></b:navLink>-->
                 </b:navBar>
             </ui:insert>
         </div>

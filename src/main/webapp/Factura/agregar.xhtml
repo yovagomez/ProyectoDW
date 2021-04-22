@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+    
+    <h:head>
+        <title>Editar Factura|FlipCars</title>
+    </h:head>
+
+    <body>
+
+        <ui:composition template="./../resources/Templates/template1.xhtml">
+
+            <ui:define name="content">
+                <h:form id="editaFacturaForm">
+                    <b:container fluid="true">
+                        <b:panel title="Editar Factura" style="color: #AFAFAF" >
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="ID" 
+                                                   for="id"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="ID"
+                                                 id="id"
+                                                 readonly="true"
+                                                 value="#{facturaController.id}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="id"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Identificacion" 
+                                                   for="identificacion"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Identificacion"
+                                                 id="identificacion"
+                                                 readonly="false"
+                                                 value="#{facturaController.idUsuario}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="identificacion"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="Identificación Agente:"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Identificación Agente"
+                                                 id="idAgente"
+                                                 required="true"
+                                                 value="#{facturaController.idAgente}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="idAgente"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="Código Vehículo"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="código"
+                                                 id="idVehiculo"
+                                                 required="true"
+                                                 value="#{facturaController.idVehiculo}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="idVehiculo"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="Fecha Entrega"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:datepicker id="fechaEntrega"
+                                                  required="true"
+                                                  requiredMessage="Se requiere la fecha de entrega"
+                                                  value="#{facturaController.fec_hor}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="fechaEntrega"/>
+                                </b:column>
+                            </b:row>
+                             <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="Total"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="total"
+                                                 id="total"
+                                                 required="true"
+                                                 value="#{facturaController.total}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="total"/>
+                                </b:column>
+                            </b:row>
+                             <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="Descripción"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="descripción"
+                                                 id="descripcion"
+                                                 required="true"
+                                                 value="#{facturaController.descripcion}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="descripcion"/>
+                                </b:column>
+                            </b:row>
+                         
+                            <b:row>
+                                <b:column medium-screen="2"/>
+                                <b:column medium-screen="4">
+                                    <b:commandButton value="Insertar"
+                                                     look="primary"
+                                                     style="width: 33%"
+                                                     action="#{facturaController.insertFactura()}"
+                                                     ></b:commandButton>
+                                    <b:commandButton value="Modificar"
+                                                     look="success"
+                                                     style="width: 33%"
+                                                     action="#{facturaController.updateFactura()}"
+                                                     ></b:commandButton>
+                                    <b:commandButton value="Eliminar"
+                                                     look="danger"
+                                                     style="width: 33%"
+                                                     action="#{facturaController.deleteFactura()}"
+                                                     ></b:commandButton>
+                                </b:column>
+                            </b:row>
+                        </b:panel>
+                    </b:container>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
