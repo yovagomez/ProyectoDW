@@ -66,7 +66,7 @@ public class ChartBarView implements Serializable {
         barModel.addSeries(boys);
 
 
-        barModel.setTitle("Bar Chart");
+        barModel.setTitle("Estadisticas de Ventas");
         barModel.setLegendPosition("ne");
 
         Axis xAxis = barModel.getAxis(AxisType.X);
