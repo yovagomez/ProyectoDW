@@ -44,8 +44,17 @@
                                                    />
                                 <b:dataTableColumn value="#{vehiculo.respaldo}"
                                                    label="Respaldo"
-                                                   width="15%"/>       
+                                                   width="15%"/>    
+                                
+                                <b:dataTableColumn style="text-align: center"
+                                                   label="Accion"
+                                                   width="10%">
+                                    <b:commandButton value="Editar"
+                                                     action="#{vehiculosVentaController.traerVenta(vehiculo.id, vehiculo.idVehiculo)}"/>
+                                </b:dataTableColumn>
                             </b:dataTable>
+                            
+                            
                             
                             
                         </b:panel>

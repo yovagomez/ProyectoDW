@@ -6,29 +6,18 @@
       xmlns:b="http://bootsfaces.net/ui">
 
 <h:head>
-        <title>Venta Vehículos|FlipCars</title>
+        <title>Editar Vehículos de Venta</title>
     </h:head>
-
-    <body>
-
+    <h:body>
         <ui:composition template="./../resources/Templates/template1.xhtml">
-
-            <ui:define name="top">
-               <b:navBar id="nav" style="background: black">
-                    <b:navbarLinks pull="right">
-                        <b:image library="images" name="logo.png" style="height: 75px"/>
-                    </b:navbarLinks>
-                    <b:navLink value="Inicio" href="#{request.contextPath}/faces/inicio.xhtml" style="color:white"></b:navLink>
-<!--                    <b:navLink value="Venta" href="#{request.contextPath}/faces/inicio.xhtml" style="color:white"></b:navLink>-->
-<!--                    <b:navLink value="Alquiler" href="#{request.contextPath}/faces/inicio.xhtml" style="color:white"></b:navLink>-->
+          
                     
-                </b:navBar>
-            </ui:define>
+               
 
             <ui:define name="content">
                 <h:form id="editaVentaForm"> 
                     <b:container fluid="true">
-                        <b:panel title="Editar Venta" look="primary">
+                        <b:panel title="Editar Venta" look="primary" collapsible="false">
                             <b:row tooltip="ID Venta">
                                 <b:column medium-screen="2">
                                     <h:outputLabel value="ID"
@@ -135,11 +124,20 @@
                                 </b:column>
                             </b:row>
                             
-                            <b:commandButton value="Ingresar Vehículo"
-                                             action="#{vehiculosVentaController.insertVenta()}"
-                                             look="danger">
-                                
-                            </b:commandButton >
+                           <b:commandButton look="success" 
+                                             value="Añadir Vehículo" action="#"/>
+                            <s/>
+                            <b:commandButton look="success" 
+                                             value="Actualizar Vehículo" action="#"/>
+                            <s/>
+                            <b:commandButton look="danger" 
+                                             value="Eliminar Vehículo" action="#"/>
+                            <s/>
+                            <b:commandButton look="warning"
+                                             icon-awesome="fa-file-o"
+                                             value="Crear un Respaldo" 
+                                             action="#"/>
+                          
                                 
                         </b:panel>
                     </b:container>
@@ -149,5 +147,5 @@
 
         </ui:composition>
 
-    </body>
+    </h:body>
 </html>
