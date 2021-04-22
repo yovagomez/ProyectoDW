@@ -13,7 +13,7 @@
             <ui:define name="content">
                 <h:form>
                     <b:container fluid="true">
-                        <b:panel title="Lista de Vehículos de Venta" look="primary" collapsible="false">
+                        <b:panel title="Lista de Vehículos de Venta" collapsible="false">
                             <b:dataTable value="#{vehiculosVentaController.vehiculos}"
                                          var="vehiculo"
                                          excel="true"
@@ -52,8 +52,19 @@
                                     <b:commandButton value="Editar"
                                                      action="#{vehiculosVentaController.traerVenta(vehiculo.id, vehiculo.idVehiculo)}"/>
                                 </b:dataTableColumn>
-                            </b:dataTable>
+
+                                
+                                <b:button look="success"
+                                      style="color:white"
+                                      icon-awesome=""
+                                      value="Añadir Vehículo de Venta" 
+                                      href="#{request.contextPath}/faces/Venta/AñadirVenta.xhtml"/>
                             
+                            <s/>
+                            <b:commandButton look="warning"
+                                             icon-awesome="fa-file-o"
+                                             value="Crear un Respaldo" 
+                                             action="#"/>
                             
                             
                             

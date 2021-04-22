@@ -17,7 +17,7 @@
             <ui:define name="content">
                 <h:form id="editaVentaForm"> 
                     <b:container fluid="true">
-                        <b:panel title="Editar Venta" look="primary" collapsible="false">
+                        <b:panel title="Editar Venta" collapsible="false">
                             <b:row tooltip="ID Venta">
                                 <b:column medium-screen="2">
                                     <h:outputLabel value="ID"
@@ -54,7 +54,7 @@
                                                    for="marca"/>
                                 </b:column>
                                 <b:column medium-screen="4">
-                                    <b:inputText placeholder="ID agente"
+                                    <b:inputText placeholder="Marca"
                                                  id="marca"
                                                  readonly="false"
                                                  value="#{vehiculosVentaController.marca}"/>
@@ -124,19 +124,13 @@
                                 </b:column>
                             </b:row>
                             
-                           <b:commandButton look="success" 
-                                             value="Añadir Vehículo" action="#"/>
-                            <s/>
+                           
                             <b:commandButton look="success" 
                                              value="Actualizar Vehículo" action="#"/>
                             <s/>
                             <b:commandButton look="danger" 
                                              value="Eliminar Vehículo" action="#"/>
-                            <s/>
-                            <b:commandButton look="warning"
-                                             icon-awesome="fa-file-o"
-                                             value="Crear un Respaldo" 
-                                             action="#"/>
+                            
                           
                                 
                         </b:panel>
