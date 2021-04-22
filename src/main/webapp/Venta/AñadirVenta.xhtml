@@ -6,15 +6,18 @@
       xmlns:b="http://bootsfaces.net/ui">
 
 <h:head>
-        <title>Editar Vehículos de Alquiler</title>
+        <title>Editar Vehículos de Venta</title>
     </h:head>
     <h:body>
         <ui:composition template="./../resources/Templates/template1.xhtml">
+          
+                    
+               
 
             <ui:define name="content">
-                <h:form id="editaAlquilerForm"> 
+                <h:form id="editaVentaForm"> 
                     <b:container fluid="true">
-                        <b:panel title="Editar Alquiler" collapsible="false">
+                        <b:panel title="Editar Venta" collapsible="false">
                             <b:row tooltip="ID Venta">
                                 <b:column medium-screen="2">
                                     <h:outputLabel value="ID"
@@ -24,7 +27,7 @@
                                     <b:inputText placeholder="ID"
                                                  id="id"
                                                  readonly="true"
-                                                 value="#{vehiculosAlquilerController.id}"/>
+                                                 value="#{vehiculosVentaController.id}"/>
                                 </b:column>
                                 <b:column medium-screen="2" style-class="message">
                                     <b:message for="id"/>
@@ -39,22 +42,7 @@
                                     <b:inputText placeholder="ID Vehículo"
                                                  id="idVehiculo"
                                                  readonly="false"
-                                                 value="#{vehiculosAlquilerController.idVehiculo}"/>
-                                </b:column>
-                                                                <b:column medium-screen="2" style-class="message">
-                                    <b:message for="id"/>
-                                </b:column>
-                            </b:row>
-                            <b:row tooltip="Digite la placa del vehículo">
-                                <b:column medium-screen="2">
-                                    <h:outputLabel value="Placa"
-                                                   for="placa"/>
-                                </b:column>
-                                <b:column medium-screen="4">
-                                    <b:inputText placeholder="Placa"
-                                                 id="placa"
-                                                 readonly="false"
-                                                 value="#{vehiculosAlquilerController.placa}"/>
+                                                 value="#{vehiculosVentaController.idVehiculo}"/>
                                 </b:column>
                                 <b:column medium-screen="2" style-class="message">
                                     <b:message for="idVehiculo"/>
@@ -69,7 +57,7 @@
                                     <b:inputText placeholder="Marca"
                                                  id="marca"
                                                  readonly="false"
-                                                 value="#{vehiculosAlquilerController.marca}"/>
+                                                 value="#{vehiculosVentaController.marca}"/>
                                 </b:column>
                                 <b:column medium-screen="2" style-class="message">
                                     <b:message for="marca"/>
@@ -84,7 +72,7 @@
                                     <b:inputText placeholder="Modelo"
                                                  id="modelo"
                                                  readonly="false"
-                                                 value="#{vehiculosAlquilerController.modelo}"/>
+                                                 value="#{vehiculosVentaController.modelo}"/>
                                 </b:column>
                                 <b:column medium-screen="2" style-class="message">
                                     <b:message for="modelo"/>
@@ -99,7 +87,7 @@
                                     <b:inputText placeholder="Color"
                                                  id="color"
                                                  readonly="false"
-                                                 value="#{vehiculosAlquilerController.color}"/>
+                                                 value="#{vehiculosVentaController.color}"/>
                                 </b:column>
                                 <b:column medium-screen="2" style-class="message">
                                     <b:message for="color"/>
@@ -114,7 +102,7 @@
                                     <b:inputText placeholder="Año"
                                                  id="anio"
                                                  readonly="false"
-                                                 value="#{vehiculosAlquilerController.anio}"/>
+                                                 value="#{vehiculosVentaController.anio}"/>
                                 </b:column>
                                 <b:column medium-screen="2" style-class="message">
                                     <b:message for="anio"/>
@@ -129,20 +117,26 @@
                                     <b:inputText placeholder="Respaldo"
                                                  id="respaldo"
                                                  readonly="false"
-                                                 value="#{vehiculosAlquilerController.respaldo}"/>
+                                                 value="#{vehiculosVentaController.respaldo}"/>
                                 </b:column>
                                 <b:column medium-screen="2" style-class="message">
                                     <b:message for="respaldo"/>
                                 </b:column>
                             </b:row>
                             
+                           
                             <s/>
                             <b:commandButton look="success" 
-                                             value="Actualizar Vehículo" action="#"/>
+                                             value="Añadir Vehículo" action="#"/>
                             <s/>
-                            <b:commandButton look="danger" 
-                                             value="Eliminar Vehículo" action="#"/>
+                             <b:button look="danger"
+                                      style="color:white"
+                                      icon-awesome=""
+                                      value="Regresar" 
+                                      href="#{request.contextPath}/faces/Alquiler/ListaVenta.xhtml"/>
                             
+                          
+                                
                         </b:panel>
                     </b:container>
                 </h:form>

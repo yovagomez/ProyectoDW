@@ -13,7 +13,7 @@
             <ui:define name="content">
                 <h:form>
                     <b:container fluid="true">
-                        <b:panel title="Lista de Vehículos de Alquiler" look="primary" collapsible="false">
+                        <b:panel title="Lista de Vehículos de Alquiler" collapsible="false">
                             <b:dataTable value="#{vehiculosAlquilerController.vehiculos}"
                                          var="vehiculo"
                                          excel="true"
@@ -58,6 +58,18 @@
                                                      action="#{vehiculosAlquilerController.traerAlquiler(vehiculo.id, vehiculo.idVehiculo)}"/>
                                 </b:dataTableColumn>
                             </b:dataTable>
+                            
+                            <b:button look="success"
+                                      style="color:white"
+                                      icon-awesome=""
+                                      value="Añadir Vehiculo Alquiler" 
+                                      href="#{request.contextPath}/faces/Alquiler/AñadirAlquiler.xhtml"/>
+                            
+                            <s/>
+                            <b:commandButton look="warning"
+                                             icon-awesome="fa-file-o"
+                                             value="Crear un Respaldo" 
+                                             action="#"/>
                             
                             
                             
