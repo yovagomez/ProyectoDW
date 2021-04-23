@@ -18,6 +18,7 @@ import javax.faces.context.FacesContext;
  *
  * @author Isaac Ureña
  */
+
 @Named(value = "descuentoController")
 @Dependent
 public class DescuentoController extends Descuento implements Serializable {
@@ -34,8 +35,8 @@ public class DescuentoController extends Descuento implements Serializable {
         Descuento elDescuento = DescuentoGestion.getDescuento(id, idDescuento);
         if (elDescuento != null) {
             this.setId(elDescuento.getId());
-            this.setIdDescuento(elDescuento.getIdDescuento());
             this.setDescuento(elDescuento.getDescuento());
+            this.setCondiciones(elDescuento.getCondiciones());
             return "edita.xhtml";
         } else {
             FacesMessage msg = new FacesMessage (FacesMessage.SEVERITY_ERROR, "Error", "Posiblemente el dato no exista");
@@ -44,7 +45,7 @@ public class DescuentoController extends Descuento implements Serializable {
         }
     } //fin metodo traer descuento
     public String insertDescuento(){
-        if (DescuentoGestion.insertDescuento(this)) {
+        if (DescuentoGestion.insertarDescuento(this)) {
             return "list.xhtml";
         }else {
             FacesMessage msg = new FacesMessage (FacesMessage.SEVERITY_ERROR, "Error","Error al insertar el nuevo descuento");
@@ -53,7 +54,7 @@ public class DescuentoController extends Descuento implements Serializable {
         }
     }
     public String updateDescuento(){
-        if (DescuentoGestion.updateDescuento(this)){
+        if (DescuentoGestion.modificarDescuento(this)){
             return "list.xhtml";
         }else {
             FacesMessage msg = new FacesMessage (FacesMessage.SEVERITY_ERROR, "Error", "Error al modificar el estudiante");
@@ -62,7 +63,7 @@ public class DescuentoController extends Descuento implements Serializable {
         }
     }
     public String deleteDescuento(){
-        if (DescuentoGestion.DeleteDescuento(this)){
+        if (DescuentoGestion.EliminarDescuento(this)){
             return "list.xhtml";
         }else {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,"Error","Error al eliminar el estudiante");
@@ -70,6 +71,5 @@ public class DescuentoController extends Descuento implements Serializable {
             return "edita.xhtml";
         }
     }
-    
-    
+       
 }

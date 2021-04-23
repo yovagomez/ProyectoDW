@@ -11,19 +11,18 @@ package Model;
  */
 public class Descuento {
      private int id;
-    private String idDescuento;
+    private String Condiciones;
     private String descuento;
-
     
     public Descuento() {
     }
 
-    public Descuento(int id, String idDescuento, String descuento) {
+    public Descuento(int id, String Condiciones, String descuento) {
         this.id = id;
-        this.idDescuento = idDescuento;
+        this.Condiciones = Condiciones;
         this.descuento = descuento;
     }
-
+   
     public int getId() {
         return id;
     }
@@ -32,12 +31,12 @@ public class Descuento {
         this.id = id;
     }
 
-    public String getIdDescuento() {
-        return idDescuento;
+    public String getCondiciones() {
+        return Condiciones;
     }
 
-    public void setIdDescuento(String idDescuento) {
-        this.idDescuento = idDescuento;
+    public void setCondiciones(String Condiciones) {
+        this.Condiciones = Condiciones;
     }
 
     public String getDescuento() {
@@ -47,6 +46,5 @@ public class Descuento {
     public void setDescuento(String descuento) {
         this.descuento = descuento;
     }
-
-    
+ 
 }

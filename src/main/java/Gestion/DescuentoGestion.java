@@ -19,11 +19,11 @@ import java.util.logging.Logger;
  * @author Isaac Ureña
  */
 public class DescuentoGestion {
-    private static final String GET_DESCUENTOS ="SELECT * FROM descuento";
-    private static final String GET_DESCUENTO ="SELECT * FROM descuento where id=? and idDescuento=?";
-    private static final String INSERT_DESCUENTO ="INSERT into descuento (id,idDescuento,descuento) VALUES (?,?,?)";
-    private static final String UPDATE_DESCUENTO ="UPDATE descuento set descuento=? where id=? and idDescuento=?";
-    private static final String DELETE_DESCUENTO ="DELETE FROM descuento where id=? and idDescuento=?";
+    private static final String GET_DESCUENTOS ="SELECT * FROM Descuento";
+    private static final String GET_DESCUENTO ="SELECT * FROM Descuento where id=? and Condiciones=?";
+    private static final String INSERT_DESCUENTO ="INSERT into Descuento (id,Condiciones,descuento) VALUES (?,?,?)";
+    private static final String UPDATE_DESCUENTO ="UPDATE Descuento set descuento=? where Condiciones=? and id=?";
+    private static final String DELETE_DESCUENTO ="DELETE FROM Descuento where id=? and Condiciones=?";
     
         public static ArrayList<Descuento> getDescuentos() {
             ArrayList<Descuento> registro_Descuento = new ArrayList<>();
@@ -44,12 +44,12 @@ public class DescuentoGestion {
             }
            return registro_Descuento;
         }
-        public static Descuento getDescuento(int id, String idDescuento){
+        public static Descuento getDescuento(int id, String Descuento){
             Descuento descuento = null;
             try {
                 PreparedStatement sentencia = Conexion.getConexion().prepareStatement(GET_DESCUENTO);
                 sentencia.setInt(1, id);
-                sentencia.setString(2, idDescuento);
+                sentencia.setString(2, Descuento);
                 ResultSet rs = sentencia.executeQuery();
                 
                 while (rs != null && rs.next()) {
@@ -63,39 +63,39 @@ public class DescuentoGestion {
             }
             return descuento;
         }
-        public static boolean insertDescuento(Descuento descuento){
+        public static boolean insertarDescuento(Descuento descuento){
             try {
                 PreparedStatement sentencia = Conexion.getConexion().prepareStatement(INSERT_DESCUENTO);
-                sentencia.setString(1, descuento.getIdDescuento());
-                sentencia.setString(2, descuento.getDescuento());
+                sentencia.setString(1, descuento.getDescuento());
+                sentencia.setString(2, descuento.getCondiciones());
                 return sentencia.executeUpdate() > 0;
             } catch (SQLException ex){
                 Logger.getLogger(FacturaGestion.class.getName()).log(Level.SEVERE, null, ex);
             }
             return false;
         }
-        public static boolean updateDescuento(Descuento descuento) {
+        public static boolean modificarDescuento(Descuento descuento) {
             try {
             PreparedStatement sentencia = Conexion.getConexion().prepareStatement(UPDATE_DESCUENTO);
             sentencia.setInt(1, descuento.getId());
-            sentencia.setString(2, descuento.getIdDescuento());
-            sentencia.setString(3, descuento.getDescuento());
+            sentencia.setString(2, descuento.getDescuento());
+            sentencia.setString(3, descuento.getCondiciones());
             return sentencia.executeUpdate() > 0;
         } catch (SQLException ex){
            Logger.getLogger(FacturaGestion.class.getName()).log(Level.SEVERE, null, ex);
         } 
         return false;
 }
-        public static boolean DeleteDescuento (Descuento descuento) {
+        public static boolean EliminarDescuento (Descuento descuento) {
             try {
                 PreparedStatement sentencia = Conexion.getConexion().prepareStatement(DELETE_DESCUENTO);
                 sentencia.setInt(1, descuento.getId());
-                sentencia.setString(2, descuento.getIdDescuento());
+                sentencia.setString(2, descuento.getDescuento());
                 return sentencia.executeUpdate() > 0;
             }catch (SQLException ex) {
                 Logger.getLogger(FacturaGestion.class.getName()).log(Level.SEVERE, null, ex);
             }
             return false;
-        }
-        
+        }       
 }
+   
