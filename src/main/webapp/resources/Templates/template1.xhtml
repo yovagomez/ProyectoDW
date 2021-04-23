@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:b="http://bootsfaces.net/ui">
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -24,7 +25,9 @@
                         <b:dropMenu value="Usuarios" 
                                     style="color: black ; margin: 5px auto ;font-family: Work Sans;
                                     font-size: 18px">
+                            <c:if test = "${loginAgenteController.idRol == 'Admin'}">
                             <b:navLink value="Datos Inicio de Registro" style="color: black" href="#{request.contextPath}/faces/Usuarios/Lis-Usuarios.xhtml"/> <!-- hacer vistas -->
+                            </c:if>
                             <b:navLink value="Datos Agente" style="color: black" href="#{request.contextPath}/faces/Agentes/Pla-Empleados.xhtml"/>
                         </b:dropMenu>
                         <b:dropMenu value="Vehículos"

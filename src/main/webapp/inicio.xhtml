@@ -11,29 +11,20 @@
 
     <body>
 
-        <p id="prueba"> ${loginAgenteController.idRol}</p>
         <ui:composition template="./resources/templates/template1.xhtml">
 
-            <script>
-                var probando = document.getElementById("prueba").innerText;
-                if (probando == "admin") {
-                    alert("Hola XD" + probando);
-                    document.getElementById("prueba2").innerHTML = "Achantado";
-                } else {
-                    document.getElementById("prueba2").innerHTML = "Sorry crack";
-                }
-            </script>
             <!-- Mensaje de Bienvenida -->
 
             <ui:define name="content" class="fondo">
                 <h1 style="text-align: center;font-family: Work Sans">Bienvenido al Sistema de Flip Cars</h1>
-                <c:if test = "${loginAgenteController.idRol == 'admin'}">
+                <p>Su rol es  ${loginAgenteController.idRol}</p>
+                <c:if test = "${loginAgenteController.idRol =! 'Admin'}">
                     <p>Es un gusto tenerlo por aqui administrador</p>
                 </c:if>
-                <c:if test = "${loginAgenteController.idRol == 'agt'}">
+                <c:if test = "${loginAgenteController.idRol == 'Agt'}">
                     <p>Recuerde su alma nos pertenece</p>
                 </c:if>
-                <c:if test = "${loginAgenteController.idRol == 'gert'}">
+                <c:if test = "${loginAgenteController.idRol == 'Gert'}">
                     <p>Es un gusto tenerlo por aqui gerente</p>
                 </c:if>
 

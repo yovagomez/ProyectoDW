@@ -28,8 +28,8 @@ public class LoginAgenteGestion {
                 login = new LoginAgente();
                 login.setUsuario(usuario);
                 login.setClave(clave);
-                login.setNombre(st.getString(3));
-                login.setIdRol(st.getString(4));
+                login.setNombre(st.getString(4));
+                login.setIdRol(st.getString(5));
             }
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioGestion.class.getName()).log(Level.SEVERE, null, ex);
