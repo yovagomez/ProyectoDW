@@ -4,6 +4,7 @@ import Model.Conexion;
 import Model.Factura;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,7 +17,7 @@ import java.util.logging.Logger;
 public class FacturaGestion {
     private static final String GET_FACTURAS = "SELECT * FROM factura";
     private static final String GET_FACTURA = "SELECT * FROM factura where id=? and idUsuario=?";
-    private static final String INSERT_FACTURA = "insert into factura(idUsuario,idAgente,idVehiculo,fec_hor,total,descripcion) VALUES (?,?,?,?,,?,?,?)";
+    private static final String INSERT_FACTURA = "INSERT INTO factura(idUsuario,idAgente,idVehiculo,fechaEntrega,total,descripcion) VALUES (?,?,?,?,?,?)";
     private static final String UPDATE_FACTURA = "update factura set fec_hor=?, total=?, descripcion=? where id=? and idUsuario=?";
     private static final String DELETE_FACTURA = "delete from factura where id=? and idUsuario=?";
     
@@ -38,7 +39,7 @@ public class FacturaGestion {
                         result.getString(7)));
                 
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             Logger.getLogger(FacturaGestion.class.getName()).log(Level.SEVERE,null,e);
         }
         
@@ -64,7 +65,7 @@ public class FacturaGestion {
                         result.getString(7));
                 
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             Logger.getLogger(FacturaGestion.class.getName()).log(Level.SEVERE,null,e);
         }
         
@@ -80,13 +81,10 @@ public class FacturaGestion {
                sentencia.setObject(4, factura.getFec_hor());
                sentencia.setDouble(5, factura.getTotal());
                sentencia.setString(6, factura.getDescripcion());
-               
                return sentencia.executeUpdate() > 0;
-               
-           } catch (Exception e) {
+           } catch (SQLException e) {
                Logger.getLogger(FacturaGestion.class.getName()).log(Level.SEVERE,null,e);
            }
-           
            return false;
        }
        
@@ -103,7 +101,7 @@ public class FacturaGestion {
                
                return sentencia.executeUpdate() > 0;
                
-           } catch (Exception e) {
+           } catch (SQLException e) {
                Logger.getLogger(FacturaGestion.class.getName()).log(Level.SEVERE,null,e);
            }
            
@@ -118,7 +116,7 @@ public class FacturaGestion {
                     
                     return sentencia.executeUpdate() > 0;
                     
-                } catch (Exception e) {
+                } catch (SQLException e) {
                     Logger.getLogger(FacturaGestion.class.getName()).log(Level.SEVERE, null,e);
                 }
                 

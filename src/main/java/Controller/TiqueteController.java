@@ -35,49 +35,52 @@ public class TiqueteController extends Tiquete implements Serializable {
             this.setIdUsuario(elTiquete.getIdUsuario());
             this.setIdAgente(elTiquete.getIdAgente());
             this.setIdVehiculo(elTiquete.getIdVehiculo());
-            this.setFec_hor(elTiquete.getFec_hor());
+            this.setFechaEntrega(elTiquete.getFechaEntrega());
+            this.setHoraEntrega(elTiquete.getHoraEntrega());
+            this.setFechaDevolucion(elTiquete.getFechaDevolucion());
+            this.setHoraDevolucion(elTiquete.getHoraDevolucion());
             this.setTotal(elTiquete.getTotal());
             this.setDescripcion(elTiquete.getDescripcion());
             
-            return "edita.xhtml";
+            return "agregar.xhtml";
         }else{
             FacesMessage mensaje=new FacesMessage(FacesMessage.SEVERITY_ERROR,"Error","Ocurrio un error, vuelva a intentarlo");
-            FacesContext.getCurrentInstance().addMessage("editaFacturaForm:identificacion", mensaje);
-            return "lista.xhtml";
+            FacesContext.getCurrentInstance().addMessage("editaTiqueteForm:identificacion", mensaje);
+            return "tiquete.xhtml";
         }
     }
     
     public String insertTiquete() {
         if (TiqueteGestion.insertTiquete(this)) {
-            return "lista.xhtml";
+            return "tiquete.xhtml";
             
         }else{
             FacesMessage mensaje=new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error","Ocurrio un error, vuelva a intentarlo");
             FacesContext.getCurrentInstance().addMessage("editaFacturaForm:identificacion", mensaje);
-            return "edita.xhtml";
+            return "agregar.xhtml";
         }
     }
     
         
     public String updateTiquete() {
         if (TiqueteGestion.updateTiquete(this)) {
-            return "lista.xhtml";
+            return "tiquete.xhtml";
             
         }else{
             FacesMessage mensaje=new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error","Ocurrio un error, vuelva a intentarlo");
             FacesContext.getCurrentInstance().addMessage("editaFacturaForm:identificacion", mensaje);
-            return "edita.xhtml";
+            return "agregar.xhtml";
         }
     }
     
         public String deleteTiquete() {
         if (TiqueteGestion.deleteTiquete(this)) {
-            return "lista.xhtml";
+            return "tiquete.xhtml";
             
         }else{
             FacesMessage mensaje=new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error","Ocurrio un error, vuelva a intentarlo");
             FacesContext.getCurrentInstance().addMessage("editaFacturaForm:identificacion", mensaje);
-            return "edita.xhtml";
+            return "agregar.xhtml";
         }
     }
     

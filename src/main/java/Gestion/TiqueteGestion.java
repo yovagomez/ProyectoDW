@@ -17,8 +17,8 @@ public class TiqueteGestion {
 
     private static final String GET_TIQUETES = "SELECT * FROM tiquete";
     private static final String GET_TIQUETE = "SELECT * FROM tiquete where id=? and idUsuario=?";
-    private static final String INSERT_TIQUETE = "insert into tiquete(idUsuario,idAgente,idVehiculo,fec_hor,total,descripcion) VALUES (?,?,?,?,,?,?,?)";
-    private static final String UPDATE_TIQUETE = "update tiquete set fec_hor=?, total=?, descripcion=? where id=? and idUsuario=?";
+    private static final String INSERT_TIQUETE = "insert into tiquete(idUsuario,idAgente,idVehiculo,fechaEntrega,horaEntrega,fechaDevolucion,horaDevolucion,total,descripcion) VALUES (?,?,?,?,?,?,?,?,?)";
+    private static final String UPDATE_TIQUETE = "update tiquete set fechaEntrega=?,horaEntrega=?,fechaDevolucion=?,horaDevolucion=?, total=?, descripcion=? where id=? and idUsuario=?";
     private static final String DELETE_TIQUETE = "delete from tiquete where id=? and idUsuario=?";
 
     public static ArrayList<Tiquete> getTiquetes() {
@@ -33,9 +33,12 @@ public class TiqueteGestion {
                         result.getString(2),
                         result.getString(3),
                         result.getInt(4),
-                        result.getTimestamp(5),
-                        result.getDouble(6),
-                        result.getString(7)));
+                        result.getDate(5),
+                        result.getTime(6),
+                        result.getDate(7),
+                        result.getTime(8),
+                        result.getDouble(9),
+                        result.getString(10)));
 
             }
         } catch (Exception e) {
@@ -59,9 +62,12 @@ public class TiqueteGestion {
                         result.getString(2),
                         result.getString(3),
                         result.getInt(4),
-                        result.getTimestamp(5),
-                        result.getDouble(6),
-                        result.getString(7));
+                        result.getDate(5),
+                        result.getTime(6),
+                        result.getDate(7),
+                        result.getTime(8),
+                        result.getDouble(9),
+                        result.getString(10));
 
             }
         } catch (Exception e) {
@@ -77,7 +83,10 @@ public class TiqueteGestion {
             sentencia.setString(1, tiquete.getIdUsuario());
             sentencia.setString(2, tiquete.getIdAgente());
             sentencia.setInt(3, tiquete.getIdVehiculo());
-            sentencia.setObject(4, tiquete.getFec_hor());
+            sentencia.setObject(4, tiquete.getFechaEntrega());
+            sentencia.setObject(4, tiquete.getHoraEntrega());
+            sentencia.setObject(4, tiquete.getFechaDevolucion());
+            sentencia.setObject(4, tiquete.getHoraDevolucion());
             sentencia.setDouble(5, tiquete.getTotal());
             sentencia.setString(6, tiquete.getDescripcion());
 
@@ -96,7 +105,10 @@ public class TiqueteGestion {
             sentencia.setString(1, tiquete.getIdUsuario());
             sentencia.setString(2, tiquete.getIdAgente());
             sentencia.setInt(3, tiquete.getIdVehiculo());
-            sentencia.setObject(4, tiquete.getFec_hor());
+            sentencia.setObject(4, tiquete.getFechaEntrega());
+            sentencia.setObject(4, tiquete.getHoraEntrega());
+            sentencia.setObject(4, tiquete.getFechaDevolucion());
+            sentencia.setObject(4, tiquete.getFechaDevolucion());
             sentencia.setDouble(5, tiquete.getTotal());
             sentencia.setString(6, tiquete.getDescripcion());
             sentencia.setInt(7, tiquete.getId());

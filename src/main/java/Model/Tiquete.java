@@ -1,6 +1,8 @@
 package Model;
 
+import java.sql.Time;
 import java.sql.Timestamp;
+import java.util.Date;
 import org.exolab.castor.types.DateTime;
 
 /**
@@ -12,7 +14,10 @@ public class Tiquete {
     private String idUsuario;
     private String idAgente;
     private int idVehiculo;
-    private Timestamp fec_hor;
+    private Date fechaEntrega;
+    private Time horaEntrega;
+    private Date fechaDevolucion;
+    private Time horaDevolucion;
     private double total;
     private String descripcion;
 
@@ -20,12 +25,14 @@ public class Tiquete {
 
     }
     
-    public Tiquete(int id,String idUsuario,String idAgente,int idVehiculo,Timestamp fec_hor,double total,String descripcion){
+    public Tiquete(int id,String idUsuario,String idAgente,int idVehiculo,Date fechaEntrega,Time horaEntrega,Date fechaDevolucion,Time horaDevolucion,double total,String descripcion){
         this.id=id;
         this.idUsuario=idUsuario;
         this.idAgente=idAgente;
         this.idVehiculo=idVehiculo;
-        this.fec_hor=fec_hor;
+        this.fechaEntrega=fechaEntrega;
+        this.horaEntrega=horaEntrega;
+        this.fechaDevolucion=fechaDevolucion;
         this.total=total;
         this.descripcion=descripcion;
     }
@@ -54,14 +61,6 @@ public class Tiquete {
         this.idVehiculo = idVehiculo;
     }
 
-    public Timestamp getFec_hor() {
-        return fec_hor;
-    }
-
-    public void setFec_hor(Timestamp fec_hor) {
-        this.fec_hor = fec_hor;
-    }
-
     public double getTotal() {
         return total;
     }
@@ -84,5 +83,37 @@ public class Tiquete {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Date getFechaEntrega() {
+        return fechaEntrega;
+    }
+
+    public void setFechaEntrega(Date fechaEntrega) {
+        this.fechaEntrega = fechaEntrega;
+    }
+
+    public Time getHoraEntrega() {
+        return horaEntrega;
+    }
+
+    public void setHoraEntrega(Time horaEntrega) {
+        this.horaEntrega = horaEntrega;
+    }
+
+    public Date getFechaDevolucion() {
+        return fechaDevolucion;
+    }
+
+    public void setFechaDevolucion(Date fechaDevolucion) {
+        this.fechaDevolucion = fechaDevolucion;
+    }
+
+    public Time getHoraDevolucion() {
+        return horaDevolucion;
+    }
+
+    public void setHoraDevolucion(Time horaDevolucion) {
+        this.horaDevolucion = horaDevolucion;
     }
 }

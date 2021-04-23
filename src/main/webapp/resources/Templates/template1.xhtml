@@ -47,7 +47,15 @@
 
                         <b:dropMenu value="Ingresos"
                                     style="color: black; margin: 5px auto; font-family: Work Sans; font-size: 18px">
-                            <b:navLink value="Facturas" style="color: black" href="#{request.contextPath}/faces/Factura/factura.xhtml"/> 
+                            <b:dropMenu value="Factura" style="color: black">
+                                <b:navLink value="Lista Facturas" style="color: black" href="#{request.contextPath}/faces/Factura/factura.xhtml"/> 
+                                <b:navLink value="Nueva Factura" style="color: black" href="#{request.contextPath}/faces/Factura/agregar.xhtml"/> 
+                            </b:dropMenu>
+                            <b:dropMenu value="Tiquete" style="color: black">
+                                <b:navLink value="Lista Tiquetes" style="color: black" href="#{request.contextPath}/faces/Tiquete/tiquete.xhtml"/>
+                                <b:navLink value="Nuevo Tiquete" style="color: black" href="#{request.contextPath}/faces/Tiquete/agregar.xhtml"/> 
+                            </b:dropMenu>
+                            
                             <b:navLink value="Tiquetes" style="color: black" href="#{request.contextPath}/faces/Tiquete/tiquete.xhtml"/>
 
 

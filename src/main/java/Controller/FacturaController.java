@@ -38,45 +38,45 @@ public class FacturaController extends Factura implements Serializable {
             this.setTotal(laFactura.getTotal());
             this.setDescripcion(laFactura.getDescripcion());
             
-            return "edita.xhtml";
+            return "factura.xhtml";
         }else{
             FacesMessage mensaje=new FacesMessage(FacesMessage.SEVERITY_ERROR,"Error","Ocurrio un error, vuelva a intentarlo");
             FacesContext.getCurrentInstance().addMessage("editaFacturaForm:identificacion", mensaje);
-            return "lista.xhtml";
+            return "agregar.xhtml";
         }
     }
     
     public String insertFactura() {
         if (FacturaGestion.insertFactura(this)) {
-            return "lista.xhtml";
+            return "factura.xhtml";
             
         }else{
             FacesMessage mensaje=new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error","Ocurrio un error, vuelva a intentarlo");
             FacesContext.getCurrentInstance().addMessage("editaFacturaForm:identificacion", mensaje);
-            return "edita.xhtml";
+            return "agregar.xhtml";
         }
     }
     
         
     public String updateFactura() {
         if (FacturaGestion.updateFactura(this)) {
-            return "lista.xhtml";
+            return "factura.xhtml";
             
         }else{
             FacesMessage mensaje=new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error","Ocurrio un error, vuelva a intentarlo");
             FacesContext.getCurrentInstance().addMessage("editaFacturaForm:identificacion", mensaje);
-            return "edita.xhtml";
+            return "agregar.xhtml";
         }
     }
     
         public String deleteFactura() {
         if (FacturaGestion.deleteFactura(this)) {
-            return "lista.xhtml";
+            return "factura.xhtml";
             
         }else{
             FacesMessage mensaje=new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error","Ocurrio un error, vuelva a intentarlo");
             FacesContext.getCurrentInstance().addMessage("editaFacturaForm:identificacion", mensaje);
-            return "edita.xhtml";
+            return "agregar.xhtml";
         }
     }
     

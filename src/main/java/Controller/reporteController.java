@@ -29,7 +29,7 @@ public class reporteController implements Serializable {
     
     public void verFactura() {
         try {
-            File jasper = new File(FacesContext.getCurrentInstance().getExternalContext().getRealPath("/Factura/facturapdf.jasper"));
+            File jasper = new File(FacesContext.getCurrentInstance().getExternalContext().getRealPath("/Factura/factura.jasper"));
             JasperPrint reporteJasper = JasperFillManager.fillReport(jasper.getPath(), null, Conexion.getConexion());
             HttpServletResponse respuesta = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
             respuesta.setContentType("application/pdf");
@@ -45,7 +45,7 @@ public class reporteController implements Serializable {
     
     public void facturaPDF() {
         try {
-            File jasper = new File(FacesContext.getCurrentInstance().getExternalContext().getRealPath("/Factura/facturapdf.jasper"));
+            File jasper = new File(FacesContext.getCurrentInstance().getExternalContext().getRealPath("/Factura/factura.jasper"));
             JasperPrint reporteJasper = JasperFillManager.fillReport(jasper.getPath(),null, Conexion.getConexion());
             HttpServletResponse respuesta=(HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
             respuesta.setContentType("application.pdf");
@@ -61,7 +61,7 @@ public class reporteController implements Serializable {
     
        public void verTiquete() {
         try {
-            File jasper = new File(FacesContext.getCurrentInstance().getExternalContext().getRealPath("/Tiquete/tiquetepdf.jasper"));
+            File jasper = new File(FacesContext.getCurrentInstance().getExternalContext().getRealPath("/Tiquete/tiquete.jasper"));
             JasperPrint reporteJasper = JasperFillManager.fillReport(jasper.getPath(), null, Conexion.getConexion());
             HttpServletResponse respuesta = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
             respuesta.setContentType("application/pdf");
@@ -77,7 +77,7 @@ public class reporteController implements Serializable {
        
          public void tiquetePDF() {
         try {
-            File jasper = new File(FacesContext.getCurrentInstance().getExternalContext().getRealPath("/Tiquete/tiquetepdf.jasper"));
+            File jasper = new File(FacesContext.getCurrentInstance().getExternalContext().getRealPath("/Tiquete/tiquete.jasper"));
             JasperPrint reporteJasper = JasperFillManager.fillReport(jasper.getPath(),null, Conexion.getConexion());
             HttpServletResponse respuesta=(HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
             respuesta.setContentType("application.pdf");

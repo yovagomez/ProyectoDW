@@ -5,18 +5,14 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:b="http://bootsfaces.net/ui">
 
-    <h:head>
-        <title>Editar Factura|FlipCars</title>
-    </h:head>
-
     <body>
 
         <ui:composition template="./../resources/Templates/template1.xhtml">
 
             <ui:define name="content">
-                <h:form id="editaFacturaForm">
+                <h:form id="editaTiqueteForm">
                     <b:container fluid="true">
-                        <b:panel title="Editar Factura" style="color: #AFAFAF" >
+                        <b:panel title="Editar Tiquete" style="color: #AFAFAF" >
                             <b:row>
                                 <b:column medium-screen="2">
                                     <h:outputLabel value="ID" 
@@ -26,7 +22,7 @@
                                     <b:inputText placeholder="ID"
                                                  id="id"
                                                  readonly="true"
-                                                 value="#{facturaController.id}"/>
+                                                 value="#{tiqueteController.id}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="id"/>
@@ -41,7 +37,7 @@
                                     <b:inputText placeholder="Cedula"
                                                  id="identificacion"
                                                  readonly="false"
-                                                 value="#{facturaController.idUsuario}"/>
+                                                 value="#{tiqueteController.idUsuario}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="identificacion"/>
@@ -55,7 +51,7 @@
                                     <b:inputText placeholder="Cedula"
                                                  id="idAgente"
                                                  required="true"
-                                                 value="#{facturaController.idAgente}"/>
+                                                 value="#{tiqueteController.idAgente}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="idAgente"/>
@@ -69,7 +65,7 @@
                                     <b:inputText placeholder="código"
                                                  id="idVehiculo"
                                                  required="true"
-                                                 value="#{facturaController.idVehiculo}"/>
+                                                 value="#{tiqueteController.idVehiculo}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="idVehiculo"/>
@@ -80,15 +76,58 @@
                                     <h:outputText value="Fecha Entrega"/>
                                 </b:column>
                                 <b:column medium-screen="4">
-                                    <b:dateTimePicker id="fechaEntrega"
+                                    <b:datepicker id="fechaEntrega"
                                                   required="true"
                                                   requiredMessage="Se requiere la fecha de entrega"
-                                                  value="#{facturaController.fec_hor}"/>
+                                                  value="#{tiqueteController.fechaEntrega}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="fechaEntrega"/>
                                 </b:column>
                             </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="Hora Entrega"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Hora"
+                                                 id="horaEntrega"
+                                                 required="true"
+                                                 value="#{tiqueteController.horaEntrega}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="horaEntrega"/>
+                                </b:column>
+                            </b:row>
+                             <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="Fecha Devolucion"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:datepicker id="fechaDevolucion"
+                                                  required="true"
+                                                  requiredMessage="Se requiere la fecha de devolucion"
+                                                  value="#{tiqueteController.fechaDevolucion}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="fechaDevolucion"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="Hora Devolucion"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Hora"
+                                                 id="horaDevolucion"
+                                                 required="true"
+                                                 value="#{tiqueteController.horaDevolucion}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="horaDevolucion"/>
+                                </b:column>
+                            </b:row>
+
                             <b:row>
                                 <b:column medium-screen="2">
                                     <h:outputText value="Total"/>
@@ -97,7 +136,7 @@
                                     <b:inputText placeholder="total"
                                                  id="total"
                                                  required="true"
-                                                 value="#{facturaController.total}"/>
+                                                 value="#{tiqueteController.total}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="total"/>
@@ -111,7 +150,7 @@
                                     <b:inputText placeholder="descripción"
                                                  id="descripcion"
                                                  required="true"
-                                                 value="#{facturaController.descripcion}"/>
+                                                 value="#{tiqueteController.descripcion}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="descripcion"/>
@@ -124,7 +163,7 @@
                                     <b:commandButton value="Insertar"
                                                      look="primary"
                                                      style="width: 33%"
-                                                     action="#{facturaController.insertFactura()}">
+                                                     action="#{tiqueteController.insertFactura()}">
                                     </b:commandButton>
 
                                 </b:column>

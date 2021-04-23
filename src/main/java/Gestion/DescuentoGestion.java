@@ -19,11 +19,11 @@ import java.util.logging.Logger;
  * @author Isaac Ureña
  */
 public class DescuentoGestion {
-    private static final String GET_DESCUENTOS ="SELECT * FROM Descuento";
-    private static final String GET_DESCUENTO ="SELECT * FROM Descuento where id=? and Condiciones=?";
-    private static final String INSERT_DESCUENTO ="INSERT into Descuento (id,Condiciones,descuento) VALUES (?,?,?)";
-    private static final String UPDATE_DESCUENTO ="UPDATE Descuento set descuento=? where Condiciones=? and id=?";
-    private static final String DELETE_DESCUENTO ="DELETE FROM Descuento where id=? and Condiciones=?";
+    private static final String GET_DESCUENTOS ="SELECT * FROM descuento";
+    private static final String GET_DESCUENTO ="SELECT * FROM descuento where id=? and condiciones=?";
+    private static final String INSERT_DESCUENTO ="INSERT into descuento (id,condiciones,descuento) VALUES (?,?,?)";
+    private static final String UPDATE_DESCUENTO ="UPDATE descuento set descuento=? where condiciones=? and id=?";
+    private static final String DELETE_DESCUENTO ="DELETE FROM descuento where id=? and condiciones=?";
     
         public static ArrayList<Descuento> getDescuentos() {
             ArrayList<Descuento> registro_Descuento = new ArrayList<>();
@@ -40,7 +40,7 @@ public class DescuentoGestion {
                }
                
             } catch (Exception e){
-                Logger.getLogger(FacturaGestion.class.getName()).log(Level.SEVERE, null, e);
+                Logger.getLogger(DescuentoGestion.class.getName()).log(Level.SEVERE, null, e);
             }
            return registro_Descuento;
         }
