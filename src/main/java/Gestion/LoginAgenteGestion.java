@@ -7,8 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
 
 /**
  *
@@ -34,9 +32,7 @@ public class LoginAgenteGestion {
                 login.setIdRol(st.getString(4));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(LoginAgenteGestion.class.getName()).log(Level.SEVERE, null, ex);
-            FacesMessage mensage = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Esta picha no sirve");
-            FacesContext.getCurrentInstance().addMessage("loginForm:clave", mensage);
+            Logger.getLogger(UsuarioGestion.class.getName()).log(Level.SEVERE, null, ex);
         }
         return login;
     }

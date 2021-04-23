@@ -2,7 +2,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:b="http://bootsfaces.net/ui"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
@@ -12,23 +11,32 @@
 
     <body>
 
-        <p id="prueba"> ${usuarioController.idRol}</p>
+        <p id="prueba"> ${loginAgenteController.idRol}</p>
         <ui:composition template="./resources/templates/template1.xhtml">
 
+            <script>
+                var probando = document.getElementById("prueba").innerText;
+                if (probando == "admin") {
+                    alert("Hola XD" + probando);
+                    document.getElementById("prueba2").innerHTML = "Achantado";
+                } else {
+                    document.getElementById("prueba2").innerHTML = "Sorry crack";
+                }
+            </script>
             <!-- Mensaje de Bienvenida -->
 
             <ui:define name="content" class="fondo">
                 <h1 style="text-align: center;font-family: Work Sans">Bienvenido al Sistema de Flip Cars</h1>
-                <c:if test = "${usuarioController.idRol == 'Admin'}">
-                    <h1>Es un gusto tenerlo por aqui administrador</h1>
+                <c:if test = "${loginAgenteController.idRol == 'admin'}">
+                    <p>Es un gusto tenerlo por aqui administrador</p>
                 </c:if>
-                <c:if test = "${usuarioController.idRol == 'Agt'}">
-                    <h1>Recuerde su alma nos pertenece</h1>
+                <c:if test = "${loginAgenteController.idRol == 'agt'}">
+                    <p>Recuerde su alma nos pertenece</p>
                 </c:if>
-                <c:if test = "${usuarioController.idRol == 'Gert'}">
-                    <h1>Es un gusto tenerlo por aqui gerente</h1>
+                <c:if test = "${loginAgenteController.idRol == 'gert'}">
+                    <p>Es un gusto tenerlo por aqui gerente</p>
                 </c:if>
-                
+
                 <!-- Carrucel de Imagenes -->
                 <h:outputScript library="bsf" name="js/carousel.js" />
                 <div id="myCarousel" class="carousel slide" data-ride="carousel" style="position: relative">
