@@ -40,46 +40,47 @@ public class vehiculosVentaController extends vehiculosVenta implements Serializ
             this.setAnio(laVenta.getAnio());
             this.setRespaldo(laVenta.getRespaldo());
             
-            return "edita.xhtml";
+            return "vehiculosVentaClient.xhtml";
         }else{
             FacesMessage mensaje=new FacesMessage(FacesMessage.SEVERITY_ERROR,"Error","Ocurrio un error, vuelva a intentarlo");
             FacesContext.getCurrentInstance().addMessage("traerVentaForm:identificacion", mensaje);
-            return "lista.xhtml";
+            return "ListaVenta.xhtml";
         }
     }
     
     public String insertVenta() {
         if (vehiculosVentaGestion.insertVenta(this)) {
-            return "lista.xhtml";
+            return "ListaVenta.xhtml";
             
         }else{
             FacesMessage mensaje=new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error","Ocurrio un error, vuelva a intentarlo");
             FacesContext.getCurrentInstance().addMessage("traerVentaForm:identificacion", mensaje);
-            return "edita.xhtml";
+            return "AñadirVenta.xhtml";
         }
     }
     
         
     public String updateVenta() {
         if (vehiculosVentaGestion.updateVenta(this)) {
-            return "lista.xhtml";
+            return "ListaVenta.xhtml";
             
         }else{
             FacesMessage mensaje=new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error","Ocurrio un error, vuelva a intentarlo");
             FacesContext.getCurrentInstance().addMessage("traerVentaForm:identificacion", mensaje);
-            return "edita.xhtml";
+            return "vehiculosVentaClient.xhtml";
         }
     }
     
         public String deleteVenta() {
         if (vehiculosVentaGestion.deleteVenta(this)) {
-            return "lista.xhtml";
+            return "ListaVenta.xhtml";
             
         }else{
             FacesMessage mensaje=new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error","Ocurrio un error, vuelva a intentarlo");
             FacesContext.getCurrentInstance().addMessage("traerVentaForm:identificacion", mensaje);
-            return "edita.xhtml";
+            return "vehiculosVentaClient.xhtml";
         }
     }
 
 }
+

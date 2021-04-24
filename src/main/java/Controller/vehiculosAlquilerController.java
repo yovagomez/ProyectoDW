@@ -41,47 +41,48 @@ public class vehiculosAlquilerController extends vehiculosAlquiler implements Se
             this.setAnio(elAlquiler.getAnio());
             this.setRespaldo(elAlquiler.getRespaldo());
             
-            return "edita.xhtml";
+            return "vehiculosAlquilerClient.xhtml";
         }else{
             FacesMessage mensaje=new FacesMessage(FacesMessage.SEVERITY_ERROR,"Error","Ocurrio un error, vuelva a intentarlo");
             FacesContext.getCurrentInstance().addMessage("traerAlquilerForm:identificacion", mensaje);
-            return "lista.xhtml";
+            return "ListaAlquiler.xhtml";
         }
     }
     
     public String insertAlquiler() {
         if (vehiculosAlquilerGestion.insertAlquiler(this)) {
-            return "lista.xhtml";
+            return "ListaAlquiler.xhtml";
             
         }else{
             FacesMessage mensaje=new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error","Ocurrio un error, vuelva a intentarlo");
             FacesContext.getCurrentInstance().addMessage("traerAlquilerForm:identificacion", mensaje);
-            return "edita.xhtml";
+            return "AñadirAlquiler.xhtml";
         }
     }
     
         
     public String updateAlquiler() {
         if (vehiculosAlquilerGestion.updateAlquiler(this)) {
-            return "lista.xhtml";
+            return "ListaAlquiler.xhtml";
             
         }else{
             FacesMessage mensaje=new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error","Ocurrio un error, vuelva a intentarlo");
             FacesContext.getCurrentInstance().addMessage("traerAlquilerForm:identificacion", mensaje);
-            return "edita.xhtml";
+            return "vehiculosAlquilerClient.xhtml";
         }
     }
     
         public String deleteAlquiler() {
         if (vehiculosAlquilerGestion.deleteAlquiler(this)) {
-            return "lista.xhtml";
+            return "ListaAlquiler.xhtml";
             
         }else{
             FacesMessage mensaje=new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error","Ocurrio un error, vuelva a intentarlo");
             FacesContext.getCurrentInstance().addMessage("traerAlquilerForm:identificacion", mensaje);
-            return "edita.xhtml";
+            return "vehiculosAlquilerClient.xhtml";
         }
     }
 
 }
+
 

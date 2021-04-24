@@ -6,7 +6,7 @@
       xmlns:b="http://bootsfaces.net/ui">
 
 <h:head>
-        <title>Editar Vehículos de Alquiler</title>
+        <title>Añadir Vehículos de Alquiler</title>
     </h:head>
     <h:body>
         <ui:composition template="./../resources/Templates/template1.xhtml">
@@ -138,7 +138,7 @@
                             
                             <s/>
                             <b:commandButton look="success" 
-                                             value="Añadir Vehículo" action="#"/>
+                                             value="Añadir Vehículo" action="#{vehiculosAlquilerController.insertAlquiler()}"/>
                             
                             <s/>
                             <b:button look="danger"
@@ -157,3 +157,4 @@
 
     </h:body>
 </html>
+

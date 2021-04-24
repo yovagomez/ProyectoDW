@@ -6,7 +6,7 @@
       xmlns:b="http://bootsfaces.net/ui">
 
 <h:head>
-        <title>Editar Vehículos de Venta</title>
+        <title>Añadir Vehículos de Venta</title>
     </h:head>
     <h:body>
         <ui:composition template="./../resources/Templates/template1.xhtml">
@@ -127,7 +127,7 @@
                            
                             <s/>
                             <b:commandButton look="success" 
-                                             value="Añadir Vehículo" action="#"/>
+                                             value="Añadir Vehículo" action="#{vehiculosVentaController.insertVenta()}"/>
                             <s/>
                              <b:button look="danger"
                                       style="color:white"
