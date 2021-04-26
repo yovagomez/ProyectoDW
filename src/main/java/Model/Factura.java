@@ -1,8 +1,5 @@
 package Model;
 
-
-
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -16,14 +13,14 @@ public class Factura {
     private String idUsuario;
     private String idAgente;
     private int idVehiculo;
-    private Timestamp fec_hor;
+    private Date fec_hor;
     private double total;
     private String descripcion;
     
     public Factura(){
     }
     
-    public Factura(int id,String idUsuario,String idAgente,int idVehiculo,Timestamp fec_hor,double total,String descripcion){
+    public Factura(int id,String idUsuario,String idAgente,int idVehiculo,Date fec_hor,double total,String descripcion){
         this.id=id;
         this.idUsuario=idUsuario;
         this.idAgente=idAgente;
@@ -57,11 +54,11 @@ public class Factura {
         this.idVehiculo = idVehiculo;
     }
 
-    public Timestamp getFec_hor() {
+    public Date getFec_hor() {
         return fec_hor;
     }
 
-    public void setFec_hor(Timestamp fec_hor) {
+    public void setFec_hor(Date fec_hor) {
         this.fec_hor = fec_hor;
     }
 

@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 public class FacturaGestion {
     private static final String GET_FACTURAS = "SELECT * FROM factura";
     private static final String GET_FACTURA = "SELECT * FROM factura where id=? and idUsuario=?";
-    private static final String INSERT_FACTURA = "INSERT INTO factura(idUsuario,idAgente,idVehiculo,fechaEntrega,total,descripcion) VALUES (?,?,?,?,?,?)";
+    private static final String INSERT_FACTURA = "INSERT INTO factura(idUsuario,idAgente,idVehiculo,fechaEntrega,total,descripcion)VALUES(?,?,?,?,?,?)";
     private static final String UPDATE_FACTURA = "update factura set fec_hor=?, total=?, descripcion=? where id=? and idUsuario=?";
     private static final String DELETE_FACTURA = "delete from factura where id=? and idUsuario=?";
     
@@ -34,7 +34,7 @@ public class FacturaGestion {
                         result.getString(2),
                         result.getString(3),
                         result.getInt(4),
-                        result.getTimestamp(5),
+                        result.getDate(5),
                         result.getDouble(6),
                         result.getString(7)));
                 
@@ -60,7 +60,7 @@ public class FacturaGestion {
                         result.getString(2),
                         result.getString(3),
                         result.getInt(4),
-                        result.getTimestamp(5),
+                        result.getDate(5),
                         result.getDouble(6),
                         result.getString(7));
                 

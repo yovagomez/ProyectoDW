@@ -19,28 +19,14 @@
                         <b:panel title="Editar Factura" style="color: #AFAFAF" >
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="ID" 
-                                                   for="id"/>
-                                </b:column>
-                                <b:column medium-screen="4">
-                                    <b:inputText placeholder="ID"
-                                                 id="id"
-                                                 readonly="true"
-                                                 value="#{facturaController.id}"/>
-                                </b:column>
-                                <b:column medium-screen="6" style-class="message">
-                                    <b:message for="id"/>
-                                </b:column>
-                            </b:row>
-                            <b:row>
-                                <b:column medium-screen="2">
                                     <h:outputLabel value="Identificacion Usuario" 
                                                    for="identificacion"/>
                                 </b:column>
                                 <b:column medium-screen="4">
-                                    <b:inputText placeholder="Cedula"
+                                    <b:inputText placeholder="cedula"
                                                  id="identificacion"
-                                                 readonly="false"
+                                                 mask="999999999"
+                                                 required="true"
                                                  value="#{facturaController.idUsuario}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
@@ -49,10 +35,11 @@
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputText value="Identificación Agente:"/>
+                                    <h:outputLabel value="Identificación Agente:" for="idAgente"/>
                                 </b:column>
                                 <b:column medium-screen="4">
                                     <b:inputText placeholder="Cedula"
+                                                 mask="999999999"
                                                  id="idAgente"
                                                  required="true"
                                                  value="#{facturaController.idAgente}"/>
@@ -63,7 +50,7 @@
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputText value="Código Vehículo"/>
+                                    <h:outputLabel value="Código Vehículo" for="idVehiculo"/>
                                 </b:column>
                                 <b:column medium-screen="4">
                                     <b:inputText placeholder="código"
@@ -77,7 +64,7 @@
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputText value="Fecha Entrega"/>
+                                    <h:outputLabel value="Fecha Entrega" for="fechaEntrega"/>
                                 </b:column>
                                 <b:column medium-screen="4">
                                     <b:dateTimePicker id="fechaEntrega"
@@ -91,7 +78,7 @@
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputText value="Total"/>
+                                    <h:outputLabel value="Total"/>
                                 </b:column>
                                 <b:column medium-screen="4">
                                     <b:inputText placeholder="total"
@@ -105,7 +92,7 @@
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputText value="Descripción"/>
+                                    <h:outputLabel value="Descripción"/>
                                 </b:column>
                                 <b:column medium-screen="4">
                                     <b:inputText placeholder="descripción"

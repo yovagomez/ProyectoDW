@@ -11,13 +11,32 @@
         <h:outputStylesheet name="default.css" library="css"/>
         <h:outputStylesheet name="cssLayout.css" library="css"/>
         <title>FlipCars</title>
+        <style>
+            .inicio{
+                background-image: url('https://s1.1zoom.me/big0/775/Jaguar_Sunrises_and_sunsets_2018_F-Type__Chequered_557734_1280x853.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                height: 100%;
+            }
+            .centrado{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 400px;
+                height: 0px;
+                margin: auto;
+                margin-left: -200px;
+                margin-top: -150px;
+                background-color: rgba(0,0,0,0.5);
+            }
+        </style>
     </h:head>
 
     <h:body>
 
         <div id="top" class="top">
             <ui:insert name="top">
-                <b:navBar id="nav" style=" background: #878787">   
+                <b:navBar id="nav" style=" background: #878787" class="inicio">   
                     <b:navbarLinks pull="left">
                         <b:image id="image" library="images" name="logo.png" style="height: 75px" tooltip="Inicio"/>
                     </b:navbarLinks>
@@ -26,7 +45,7 @@
                                     style="color: black ; margin: 5px auto ;font-family: Work Sans;
                                     font-size: 18px">
                             <c:if test = "${loginAgenteController.idRol == 'Admin'}">
-                            <b:navLink value="Datos Inicio de Registro" style="color: black" href="#{request.contextPath}/faces/Usuarios/Lis-Usuarios.xhtml"/> <!-- hacer vistas -->
+                                <b:navLink value="Datos Inicio de Registro" style="color: black" href="#{request.contextPath}/faces/Usuarios/Lis-Usuarios.xhtml"/> <!-- hacer vistas -->
                             </c:if>
                             <b:navLink value="Datos Agente" style="color: black" href="#{request.contextPath}/faces/Agentes/Pla-Empleados.xhtml"/>
                         </b:dropMenu>
@@ -55,13 +74,13 @@
                                 <b:navLink value="Lista Tiquetes" style="color: black" href="#{request.contextPath}/faces/Tiquete/tiquete.xhtml"/>
                                 <b:navLink value="Nuevo Tiquete" style="color: black" href="#{request.contextPath}/faces/Tiquete/agregar.xhtml"/> 
                             </b:dropMenu>
-                            
+
                             <b:navLink value="Tiquetes" style="color: black" href="#{request.contextPath}/faces/Tiquete/tiquete.xhtml"/>
 
 
                         </b:dropMenu>
                         <b:dropMenu value="${loginAgenteController.usuario}" iconAwesome="user" style="color: black; margin: 5px auto; font-family: Work Sans; font-size: 18px">
-                            <b:navLink value="Salir" style="color: black" href="#{request.contextPath}/faces/index.xhtml" ></b:navLink>
+                            <b:navLink value="Cerrar Sesión" style="color: black" href="#{request.contextPath}/faces/index.xhtml" ></b:navLink>
                         </b:dropMenu>
                     </b:navbarLinks>
 
