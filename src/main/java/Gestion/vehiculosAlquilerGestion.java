@@ -27,7 +27,7 @@ public class vehiculosAlquilerGestion {
     private static final String INSERT_ALQUILER = "insert into vehiculosalquiler(idVehiculo,placa,marca,modelo,color,anio,respaldo) VALUES (?,?,?,?,?,?,?)";
     private static final String UPDATE_ALQUILER = "update vehiculosalquiler set marca=?, modelo=?, color=?, anio=?, respaldo=?, where id=? and idVehiculo=?";
     private static final String DELETE_ALQUILER = "delete from vehiculosalquiler where id=? and idVehiculo=?";
-    private static final String GET_MARCAS = "select marca, count(*) total from vehiculosvehiculosAlquiler group by marca order by marca";
+    private static final String GET_MARCAS = "select marca, count(*) total from vehiculosAlquiler group by marca order by marca";
     public static ArrayList<vehiculosAlquiler> getAlquileres() {
         ArrayList<vehiculosAlquiler> lista_Alquileres = new ArrayList<>();
         try {

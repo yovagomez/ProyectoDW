@@ -5,7 +5,9 @@
  */
 package Graficos;
 
+import Gestion.vehiculosAlquilerGestion;
 import Gestion.vehiculosVentaGestion;
+import Model.AlquilerPorMarca;
 import Model.ventasPorMarca;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
@@ -24,11 +26,11 @@ import org.primefaces.model.chart.ChartSeries;
  *
  * @author wmolina
  */
-@Named(value = "chartBarView")
+@Named(value = "chartBarView2")
 @SessionScoped
-public class ChartBarView implements Serializable {
+public class ChartBarView2 implements Serializable {
 
-    private BarChartModel barModel;
+    private BarChartModel barModel2;
 
     @PostConstruct
     public void init() {
@@ -42,38 +44,38 @@ public class ChartBarView implements Serializable {
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
 
-    public BarChartModel getBarModel() {
-        return barModel;
+    public BarChartModel getBarModel2() {
+        return barModel2;
     }
 
     private void createBarModels() {
         createBarModel();
     }
     
-    ArrayList<ventasPorMarca> datos = vehiculosVentaGestion.getVentasPorMarca();
+    ArrayList<AlquilerPorMarca> datos = vehiculosAlquilerGestion.getAlquileresPorMarca();
         int mayor = datos.get(0).getTotal();
 
     private void createBarModel() {
-        barModel=new BarChartModel();
-        ChartSeries ventas = new ChartSeries();
-        ventas.setLabel("Marcas");
-         for (ventasPorMarca linea : datos) {
-                 ventas.set(linea.getMarca(), linea.getTotal());
+        barModel2=new BarChartModel();
+        ChartSeries alquileres = new ChartSeries();
+        alquileres.setLabel("Marcas");
+         for (AlquilerPorMarca linea : datos) {
+                 alquileres.set(linea.getMarca(), linea.getTotal());
             }
 
 
 
-        barModel.addSeries(ventas);
+        barModel2.addSeries(alquileres);
 
 
-        barModel.setTitle("Estadisticas de Alquileres");
-        barModel.setLegendPosition("ne");
+        barModel2.setTitle("Estadisticas de Ventas");
+        barModel2.setLegendPosition("ne");
 
-        Axis xAxis = barModel.getAxis(AxisType.X);
+        Axis xAxis = barModel2.getAxis(AxisType.X);
         xAxis.setLabel("Marcas");
 
-        Axis yAxis = barModel.getAxis(AxisType.Y);
-        yAxis.setLabel("Alquileres");
+        Axis yAxis = barModel2.getAxis(AxisType.Y);
+        yAxis.setLabel("Ventas");
         yAxis.setMin(0);
         yAxis.setMax(10);
     }
