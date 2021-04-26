@@ -8,33 +8,43 @@ import org.exolab.castor.types.DateTime;
  * @author julian
  */
 public class AgendarVehiculo {
-
+    private int idAgenda;
     private int idAgente;
     private int numCita;
     private  Date fecha;
     private Double  hora;
     private String descripcion;
-    private int codigoCompra;
 
     public AgendarVehiculo() {
     }
 
-    public AgendarVehiculo(int idAgente, int numCita, Date  fecha, Double  hora, String descripcion, int codigoCompra) {
+    public AgendarVehiculo(int idAgenda, int idAgente, int numCita, Date fecha, Double hora, String descripcion) {
+        this.idAgenda = idAgenda;
         this.idAgente = idAgente;
         this.numCita = numCita;
         this.fecha = fecha;
         this.hora = hora;
         this.descripcion = descripcion;
-        this.codigoCompra = codigoCompra;
+
     }
 
-    public int getId() {
+    public int getIdAgenda() {
+        return idAgenda;
+    }
+
+    public void setIdAgenda(int idAgenda) {
+        this.idAgenda = idAgenda;
+    }
+
+    public int getIdAgente() {
         return idAgente;
     }
 
-    public void setId(int id) {
-        this.idAgente = id;
+    public void setIdAgente(int idAgente) {
+        this.idAgente = idAgente;
     }
+
+ 
 
     public int getNumCita() {
         return numCita;
@@ -68,12 +78,5 @@ public class AgendarVehiculo {
         this.descripcion = descripcion;
     }
 
-    public int getCodigoCompra() {
-        return codigoCompra;
-    }
-
-    public void setCodigoCompra(int codigoCompra) {
-        this.codigoCompra = codigoCompra;
-    }
 
 }

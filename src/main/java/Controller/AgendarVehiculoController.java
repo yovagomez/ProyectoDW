@@ -27,12 +27,11 @@ public class AgendarVehiculoController extends AgendarVehiculo implements Serial
     public String editaAgenda (int id, int numCita) {
         AgendarVehiculo laAgenda = AgendarVehiculoGestion.getagendarVehiculo(id, numCita);
         if (laAgenda!=null) {
-            this.setId(laAgenda.getId());
+            this.setIdAgente(laAgenda.getIdAgente());
             this.setNumCita(laAgenda.getNumCita());
             this.setFecha(laAgenda.getFecha());
             this.setHora(laAgenda.getHora());
             this.setDescripcion(laAgenda.getDescripcion());
-            this.setCodigoCompra(laAgenda.getCodigoCompra());
             
             return "edita.xhtml";
         }else{

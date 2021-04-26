@@ -23,7 +23,7 @@
                                     <b:inputText placeholder="Id Agente"
                                                  required="true"                                                 
                                                  id="id"
-                                                 value="#{agendarVehiculoController.id}"/>
+                                                 value="#{agendarVehiculoController.idAgente}"/>
                                 </b:column>
                             </b:row>
                             <b:row>
@@ -70,18 +70,6 @@
                                                  value="#{agendarVehiculoController.descripcion}"/>
                                 </b:column>
                             </b:row>
-                            <b:row>
-                                <b:column medium-screen="2">
-                                    <h:outputLabel value="Codigo del Vehiculo" for="CodigoCompra"/>
-                                </b:column>
-                                <b:column medium-screen="2">
-                                    <b:inputText placeholder="Codigo de vehiculo"
-                                                 required="true"                                                 
-                                                 id="codigoCompra"
-                                                 value="#{agendarVehiculoController.codigoCompra}"/>
-                                </b:column>
-                            </b:row>
-
                             <b:commandButton value="Ingresar Cita"
                                              action="#{agendarVehiculoController.insertAgenda()}"
                                              look="success">
