@@ -52,17 +52,14 @@
                         <b:dropMenu value="Vehículos"
                                     style="color: black; margin: 5px auto; font-family: Work Sans; font-size: 18px">
                             <b:navLink value="Vehículos Venta" style="color: black" href="#{request.contextPath}/faces/Venta/ListaVenta.xhtml"/>
-                            <b:navLink value="Vehículos Alquiler" style="color: black" href="#{request.contextPath}/faces/Alquiler/ListaAlquiler.xhtml"/>
+                            <b:navLink value="Vehículos Alquiler" style="color: black" href="#{request.contextPath}/faces/Alquiler/Lista-Alquiler.xhtml"/>
 
                         </b:dropMenu>
                         <b:dropMenu value="Información"
                                     style="color: black; margin: 5px auto; font-family: Work Sans; font-size: 18px">
-                            <b:navLink value="Usuarios" style="color: black" href="#{request.contextPath}/faces/Usuarios/Lis-Usuarios.xhtml"/> 
-                            <b:navLink value="Eventos" style="color: black" href="#{request.contextPath}/faces/Eventos/eventos.xhtml"/> <!-- crear vistas de eventos -->
-                            <b:navLink value="Citas" style="color: black" href="#{request.contextPath}/faces/AgendarVehiculo/agendarVehiculo.xhtml"/>
+                            <b:navLink value="Usuarios" style="color: black" href="#{request.contextPath}/faces/Usuarios/Lis-Usuarios.xhtml"/>
+                            <b:navLink value="Citas" style="color: black" href="#{request.contextPath}/faces/AgendarVehiculo/ListaAgendas.xhtml"/>
                             <b:navLink value="Descuentos" style="color: black" href="#{request.contextPath}/faces/Descuento/listaDescuentos.xhtml"/>
-                            <b:navLink value="Estadisticas de Ventas" style="color: black" href="#{request.contextPath}/faces/GraficoVentas/graficoVentas.xhtml"/>
-                             <b:navLink value="Estadisticas de Alquileres" style="color: black" href="#{request.contextPath}/faces/GraficoAlquileres/graficoAlquileres.xhtml"/>
 
                         </b:dropMenu>
 
@@ -78,7 +75,8 @@
                             </b:dropMenu>
 
                             <b:navLink value="Tiquetes" style="color: black" href="#{request.contextPath}/faces/Tiquete/tiquete.xhtml"/>
-
+                            <b:navLink value="Estadisticas de Ventas" style="color: black" href="#{request.contextPath}/faces/GraficoVentas/graficoVentas.xhtml"/>
+                             <b:navLink value="Estadisticas de Alquileres" style="color: black" href="#{request.contextPath}/faces/GraficoAlquileres/graficoAlquileres.xhtml"/>
 
                         </b:dropMenu>
                         <b:dropMenu value="${loginAgenteController.usuario}" iconAwesome="user" style="color: black; margin: 5px auto; font-family: Work Sans; font-size: 18px">

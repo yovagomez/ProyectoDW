@@ -6,146 +6,123 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:b="http://bootsfaces.net/ui">
 
-<h:head>
+    <h:head>
         <title>Añadir Vehículos de Venta</title>
     </h:head>
     <h:body>
-        <ui:composition template="./../resources/Templates/template1.xhtml">
-          
-                    
-               
-
+        <ui:composition template="./../resources/templates/template1.xhtml">
             <ui:define name="content">
-                <h:form id="editaVentaForm"> 
+                <h:form id="NuevoVehiculoForm">
                     <b:container fluid="true">
-                        <b:panel title="Editar Venta" collapsible="false">
-                            <b:row tooltip="ID Venta">
+                        <b:panel title="Ingresar datos del Nuevo Vehiculo" 
+                                 collapsible="false" style="position: relative">
+                            <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="ID"
-                                                   for="id"/>
+                                    <h:outputLabel value="ID Vehiculo" for="idVehiculo"/>
                                 </b:column>
-                                <b:column medium-screen="4">
-                                    <b:inputText placeholder="ID"
-                                                 id="id"
-                                                 readonly="true"
-                                                 value="#{vehiculosVentaController.id}"/>
-                                </b:column>
-                                <b:column medium-screen="2" style-class="message">
-                                    <b:message for="id"/>
-                                </b:column>
-                            </b:row>
-                            <b:row tooltip="Digite el ID del vehículo">
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="ID Vehículo"
-                                                   for="idVehiculo"/>
-                                </b:column>
-                                <b:column medium-screen="4">
-                                    <b:inputText placeholder="ID Vehículo"
+                                    <b:inputText placeholder="123456789"
+                                                 required="true"
+                                                 mask="999999999"
                                                  id="idVehiculo"
-                                                 readonly="false"
                                                  value="#{vehiculosVentaController.idVehiculo}"/>
                                 </b:column>
-                                <b:column medium-screen="2" style-class="message">
+                                <b:column medium-screen="6" style-class="message">
                                     <b:message for="idVehiculo"/>
                                 </b:column>
                             </b:row>
-                            <b:row tooltip="Digite la Marca del vehículo">
+                            <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Marca"
-                                                   for="marca"/>
+                                    <h:outputLabel value="Marca" for="marca"/>
                                 </b:column>
-                                <b:column medium-screen="4">
+                                <b:column medium-screen="2">
                                     <b:inputText placeholder="Marca"
+                                                 required="true"                                                 
                                                  id="marca"
-                                                 readonly="false"
                                                  value="#{vehiculosVentaController.marca}"/>
                                 </b:column>
-                                <b:column medium-screen="2" style-class="message">
+                                <b:column medium-screen="6" style-class="message">
                                     <b:message for="marca"/>
                                 </b:column>
                             </b:row>
-                            <b:row tooltip="Digite el Modelo del vehículo">
+                            <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Modelo"
-                                                   for="modelo"/>
+                                    <h:outputLabel value="Modelo" for="modelo"/>
                                 </b:column>
-                                <b:column medium-screen="4">
+                                <b:column medium-screen="2">
                                     <b:inputText placeholder="Modelo"
+                                                 required="true"                                                 
                                                  id="modelo"
-                                                 readonly="false"
                                                  value="#{vehiculosVentaController.modelo}"/>
                                 </b:column>
-                                <b:column medium-screen="2" style-class="message">
+                                <b:column medium-screen="6" style-class="message">
                                     <b:message for="modelo"/>
                                 </b:column>
                             </b:row>
-                            <b:row tooltip="Digite el color del vehículo">
+                            <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Color"
-                                                   for="color"/>
+                                    <h:outputLabel value="Color" for="color"/>
                                 </b:column>
-                                <b:column medium-screen="4">
+                                <b:column medium-screen="2">
                                     <b:inputText placeholder="Color"
+                                                 required="true"                                                 
                                                  id="color"
-                                                 readonly="false"
                                                  value="#{vehiculosVentaController.color}"/>
                                 </b:column>
-                                <b:column medium-screen="2" style-class="message">
+                                <b:column medium-screen="6" style-class="message">
                                     <b:message for="color"/>
                                 </b:column>
                             </b:row>
-                            <b:row tooltip="Digite el año del vehículo">
+                            <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Año"
-                                                   for="anio"/>
+                                    <h:outputLabel value="Año" for="año"/>
                                 </b:column>
-                                <b:column medium-screen="4">
+                                <b:column medium-screen="2">
                                     <b:inputText placeholder="Año"
-                                                 id="anio"
-                                                 readonly="false"
+                                                 required="true"                                                 
+                                                 id="año"
                                                  value="#{vehiculosVentaController.anio}"/>
                                 </b:column>
-                                <b:column medium-screen="2" style-class="message">
-                                    <b:message for="anio"/>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="color"/>
                                 </b:column>
                             </b:row>
-                            <b:row tooltip="Ingrese el respaldo del vehículo">
+                            <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Respaldo"
-                                                   for="respaldo"/>
+                                    <h:outputLabel value="Respaldo" for="respaldo"/>
                                 </b:column>
-                                <b:column medium-screen="4">
+                                <b:column medium-screen="2">
                                     <b:inputText placeholder="Respaldo"
+                                                 required="true"  
                                                  id="respaldo"
-                                                 readonly="false"
                                                  value="#{vehiculosVentaController.respaldo}"/>
                                 </b:column>
-                                <b:column medium-screen="2" style-class="message">
+                                <b:column medium-screen="6" style-class="message">
                                     <b:message for="respaldo"/>
                                 </b:column>
                             </b:row>
-                            
-                           
-                            <s/>
-                            <b:commandButton look="success" 
-                                             value="Añadir Vehículo" action="#{vehiculosVentaController.insertVenta()}"/>
-                            <s/>
-                             <b:button look="danger"
-                                      style="color:white"
-                                      icon-awesome=""
-                                      value="Regresar" 
-                                      href="#{request.contextPath}/faces/Alquiler/ListaVenta.xhtml"/>
-                            
-                          
-                                
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <b:button value="Regresar"
+                                              icon-awesome="fa-arrow-left"
+                                              href="#{request.contextPath}/faces/Venta/ListaVenta.xhtml"
+                                              look="danger"
+                                              style="color:white ; width: 100%
+                                              ;font-size: 13px"/>
+                                </b:column>                        
+                                <b:column medium-screen="2">
+                                    <b:commandButton value="Ingresar"
+                                                     icon-awesome="fa-sign-in"
+                                                     action="#{vehiculosVentaController.insertVenta()}"
+                                                     look="success"
+                                                     style="width: 100%"/>
+                                </b:column>
+                            </b:row>
                         </b:panel>
                     </b:container>
                 </h:form>
-
             </ui:define>
-
         </ui:composition>
-
     </h:body>
 </html>
 

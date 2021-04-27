@@ -1,20 +1,19 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:b="http://bootsfaces.net/ui"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
 
-
-<h:head>
+    <h:head>
         <title>Lista de Alquiler</title>
     </h:head>
     <h:body>
-        <ui:composition template="./../resources/templates/template1.xhtml">
+        <ui:composition template="./../resources/Templates/template1.xhtml">
             <ui:define name="content">
                 <h:form>
                     <b:container fluid="true">
-                        <b:panel title="Lista de Vehículos de Alquiler" collapsible="false">
+                        <b:panel title="Lista de Vehículos de Venta" collapsible="false">
                             <b:dataTable value="#{vehiculosAlquilerController.vehiculos}"
                                          var="vehiculo"
                                          excel="true"
@@ -31,13 +30,13 @@
                                                    label="IdVehículo"
                                                    width="9%"/>
                                 <b:dataTableColumn value="#{vehiculo.placa}"
-                                                   label="Placa"
-                                                   width="9%"/>
-                                <b:dataTableColumn value="#{vehiculo.marca}"
                                                    label="Marca"
                                                    width="15%"/>
-                                <b:dataTableColumn value="#{vehiculo.modelo}"
+                                <b:dataTableColumn value="#{vehiculo.marca}"
                                                    label="Modelo"
+                                                   width="15%"/>
+                                <b:dataTableColumn value="#{vehiculo.modelo}"
+                                                   label="Marca"
                                                    width="15%"/>
                                 <b:dataTableColumn value="#{vehiculo.color}"
                                                    label="Color"
@@ -48,10 +47,7 @@
                                                    />
                                 <b:dataTableColumn value="#{vehiculo.respaldo}"
                                                    label="Respaldo"
-                                                   width="15%"/>     
-                                <b:dataTableColumn label="Acción"
-                                                   width="15%"
-                                                   />
+                                                   width="15%"/>    
                                 <b:dataTableColumn style="text-align: center"
                                                    label="Accion"
                                                    width="10%">
@@ -59,22 +55,16 @@
                                                      action="#{vehiculosAlquilerController.traerAlquiler(vehiculo.id, vehiculo.idVehiculo)}"/>
                                 </b:dataTableColumn>
                             </b:dataTable>
-                            
                             <b:button look="success"
                                       style="color:white"
-                                      icon-awesome=""
-                                      value="Añadir Vehiculo Alquiler" 
-                                      href="#{request.contextPath}/faces/Alquiler/AñadirAlquiler.xhtml"/>
-                            
+                                      icon-awesome="fa-car"
+                                      value="Añadir Vehículo de Alquiler" 
+                                      href="#{request.contextPath}/faces/Alquiler/Añadir-Alquiler.xhtml"/>
                             <s/>
                             <b:commandButton look="warning"
                                              icon-awesome="fa-file-o"
                                              value="Crear un Respaldo" 
-                                             action="#"/>
-                            
-                            
-                            
-                            
+                                             action="#"/>   
                         </b:panel>
                     </b:container>
                 </h:form>
@@ -82,4 +72,3 @@
         </ui:composition>
     </h:body>
 </html>
-

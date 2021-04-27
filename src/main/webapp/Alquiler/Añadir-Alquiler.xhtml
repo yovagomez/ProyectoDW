@@ -2,10 +2,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:b="http://bootsfaces.net/ui">
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
 
-<h:head>
+    <h:head>
         <title>Añadir Vehículos de Alquiler</title>
     </h:head>
     <h:body>
@@ -41,7 +41,7 @@
                                                  readonly="false"
                                                  value="#{vehiculosAlquilerController.idVehiculo}"/>
                                 </b:column>
-                                                                <b:column medium-screen="2" style-class="message">
+                                <b:column medium-screen="2" style-class="message">
                                     <b:message for="id"/>
                                 </b:column>
                             </b:row>
@@ -135,18 +135,18 @@
                                     <b:message for="respaldo"/>
                                 </b:column>
                             </b:row>
-                            
+
                             <s/>
                             <b:commandButton look="success" 
                                              value="Añadir Vehículo" action="#{vehiculosAlquilerController.insertAlquiler()}"/>
-                            
+
                             <s/>
                             <b:button look="danger"
                                       style="color:white"
                                       icon-awesome=""
                                       value="Regresar" 
-                                      href="#{request.contextPath}/faces/Alquiler/ListaAlquiler.xhtml"/>
-                            
+                                      href="#{request.contextPath}/faces/Alquiler/Lista-Alquiler.xhtml"/>
+
                         </b:panel>
                     </b:container>
                 </h:form>
@@ -157,4 +157,3 @@
 
     </h:body>
 </html>
-
