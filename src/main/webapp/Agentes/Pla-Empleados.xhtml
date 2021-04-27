@@ -51,15 +51,15 @@
                                                    width="10%"/>
                                 <b:dataTableColumn style="text-align: center"
                                                    value="#{empleado.tel}"
-                                                   label="Segundo Apellido"
+                                                   label="Teléfono"
                                                    width="10%"/>
                                 <b:dataTableColumn style="text-align: center"
                                                    label="Gestión"
                                                    width="10%">
-                                    <b:commandButton look="danger" 
-                                                     value="Eliminar"
+                                    <b:commandButton look="warning" 
+                                                     value="Modificar"
                                                      icon-awesome="fa-exclamation-triangle"
-                                                     action="#"/>
+                                                     action="#{agenteController.editaEmpleado(empleado.id, empleado.idAgente)}"/>
                                 </b:dataTableColumn>                                
                             </b:dataTable>
                             <b:button look="success"
@@ -68,11 +68,10 @@
                                       value="Añadir Empleado" 
                                       href="#{request.contextPath}/faces/Agentes/Añdr-Emp.xhtml"/>
                             <s/>
-                            <b:button look="warning"
-                                      style="color:white"
-                                      icon-awesome="fa-file-o"
-                                      value="Crear un Respaldo" 
-                                      href="#"/>
+                            <b:commandButton look="warning" 
+                                             value="Respaldo"
+                                             icon-awesome="fa-file-o"
+                                             action="#{agenteController.respaldoAgente()}"/>
                         </b:panel>
                     </b:container>
                 </h:form>

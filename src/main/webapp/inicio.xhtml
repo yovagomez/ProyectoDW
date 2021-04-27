@@ -17,15 +17,14 @@
 
             <ui:define name="content" class="fondo">
                 <h1 style="text-align: center;font-family: Work Sans">Bienvenido al Sistema de Flip Cars</h1>
-                <p>Su rol es  ${loginAgenteController.idRol}</p>
-                <c:if test = "${loginAgenteController.idRol =! 'Admin'}">
-                    <p>Es un gusto tenerlo por aqui administrador</p>
-                </c:if>
-                <c:if test = "${loginAgenteController.idRol == 'Agt'}">
-                    <p>Recuerde su alma nos pertenece</p>
+                <c:if test = "${loginAgenteController.idRol == 'Admin'}">
+                    <p>Es un gusto tenerlo por aquí administrador.</p>
                 </c:if>
                 <c:if test = "${loginAgenteController.idRol == 'Gert'}">
-                    <p>Es un gusto tenerlo por aqui gerente</p>
+                    <p>Es un gusto tenerlo por aquí gerente.</p>
+                </c:if>
+                <c:if test = "${loginAgenteController.idRol == 'Agt'}">
+                    <p>Es un gusto tenerlo por aquí agente.</p>
                 </c:if>
 
                 <!-- Carrucel de Imagenes -->

@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.Date;
+
 /**
  *
  * @author Daniel
@@ -12,14 +14,14 @@ public class Agente {
     private String nombre;
     private String apellido1;
     private String apellido2;
-    private String fechaNaci;
+    private Date fechaNaci;
     private String correo;
     private String tel;
 
     public Agente() {
     }
 
-    public Agente(int id, String idAgente, String nombre, String apellido1, String apellido2, String fechaNaci, String correo, String tel) {
+    public Agente(int id, String idAgente, String nombre, String apellido1, String apellido2, Date fechaNaci, String correo, String tel) {
         this.id = id;
         this.idAgente = idAgente;
         this.nombre = nombre;
@@ -70,11 +72,11 @@ public class Agente {
         this.apellido2 = apellido2;
     }
 
-    public String getFechaNaci() {
+    public Date getFechaNaci() {
         return fechaNaci;
     }
 
-    public void setFechaNaci(String fechaNaci) {
+    public void setFechaNaci(Date fechaNaci) {
         this.fechaNaci = fechaNaci;
     }
 
