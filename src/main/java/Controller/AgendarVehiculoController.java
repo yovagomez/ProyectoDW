@@ -21,7 +21,7 @@ public class AgendarVehiculoController extends AgendarVehiculo implements Serial
     public AgendarVehiculoController() {
     }
     public List<AgendarVehiculo> getAgendas(){
-        return AgendarVehiculoGestion.getAgendarVehiculos();
+        return AgendarVehiculoGestion.getAgendas();
     }
     
     public String editaAgenda (int id, int numCita) {
@@ -42,12 +42,12 @@ public class AgendarVehiculoController extends AgendarVehiculo implements Serial
     }
      public String insertAgenda() {
         if (AgendarVehiculoGestion.insertAgenda(this)) {
-            return "principal.xhtml";
+            return "ListaAgendas.xhtml";
             
         }else{
             FacesMessage mensaje=new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error","Ocurrio un error, vuelva a intentarlo");
             FacesContext.getCurrentInstance().addMessage("editaAgendaForm:identificacion", mensaje);
-            return "principal.xhtml";
+            return "agendarVehiculo.xhtml";
         }
     }
     

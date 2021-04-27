@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+
+<h:head>
+        <title>Lista de Citas</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="./../resources/templates/template1.xhtml">
+            <ui:define name="content">
+                <h:form>
+                    <b:container fluid="true">
+                        <b:panel title="Lista de Citas de Mantenimiento" collapsible="false">
+                            <b:dataTable value="#{agendarVehiculoController.agendas}"
+                                         var="agenda"
+                                         
+                                         >
+                                <b:dataTableColumn value="#{agenda.idAgenda}"
+                                                   label="ID"
+                                                   width="9%"/>
+                                <b:dataTableColumn value="#{agenda.idAgente}"
+                                                   label="IdAgente"
+                                                   width="9%"/>
+                                <b:dataTableColumn value="#{agenda.numCita}"
+                                                   label="Numero de cita"
+                                                   width="12%"/>
+                                <b:dataTableColumn value="#{agenda.fecha}"
+                                                   label="Fecha"
+                                                   width="9%"/>
+                                <b:dataTableColumn value="#{agenda.hora}"
+                                                   label="Hora"
+                                                   width="9%"/>
+                                <b:dataTableColumn value="#{agenda.descripcion}"
+                                                   label="Descripcion"
+                                                   width="25%"/>
+                            </b:dataTable>
+                            
+                            <b:commandButton look="success"
+                                      style="color:white"
+                                      icon-awesome=""
+                                      action="agendarVehiculo.xhtml"
+                                      value="Añadir Cita"/>
+                            
+                            <s/>        
+                        </b:panel>
+                    </b:container>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
