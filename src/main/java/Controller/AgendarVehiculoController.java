@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Controller;
 
 import Gestion.AgendarVehiculoGestion;
@@ -11,67 +16,30 @@ import javax.faces.context.FacesContext;
 
 /**
  *
- * @author julian
+ * @author USUARIO
  */
 @Named(value = "agendarVehiculoController")
 @SessionScoped
 public class AgendarVehiculoController extends AgendarVehiculo implements Serializable {
 
-   
+    /**
+     * Creates a new instance of AgendarVehiculoController
+     */
     public AgendarVehiculoController() {
     }
-    public List<AgendarVehiculo> getAgendas(){
+    
+     public List<AgendarVehiculo> getAgendas() {
         return AgendarVehiculoGestion.getAgendas();
     }
     
-    public String editaAgenda (int id, int numCita) {
-        AgendarVehiculo laAgenda = AgendarVehiculoGestion.getagendarVehiculo(id, numCita);
-        if (laAgenda!=null) {
-            this.setIdAgente(laAgenda.getIdAgente());
-            this.setNumCita(laAgenda.getNumCita());
-            this.setFecha(laAgenda.getFecha());
-            this.setHora(laAgenda.getHora());
-            this.setDescripcion(laAgenda.getDescripcion());
-            
-            return "edita.xhtml";
-        }else{
-            FacesMessage mensaje=new FacesMessage(FacesMessage.SEVERITY_ERROR,"Error","Ocurrio un error, vuelva a intentarlo");
-            FacesContext.getCurrentInstance().addMessage("editaAgendaForm:identificacion", mensaje);
-            return "lista.xhtml";
-        }
-    }
-     public String insertAgenda() {
-        if (AgendarVehiculoGestion.insertAgenda(this)) {
+      public String insertAgenda() {
+        if (AgendarVehiculoGestion.insertAgenda(this)){
             return "ListaAgendas.xhtml";
-            
-        }else{
-            FacesMessage mensaje=new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error","Ocurrio un error, vuelva a intentarlo");
-            FacesContext.getCurrentInstance().addMessage("editaAgendaForm:identificacion", mensaje);
+        } else {
+            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
+                    "Ocurrio un error al insertar un nuevo empleado");
+            FacesContext.getCurrentInstance().addMessage("traerAgendarVehiculoForm:identificacion", msg);
             return "agendarVehiculo.xhtml";
         }
     }
-    
-        
-    public String updateAgenda() {
-        if (AgendarVehiculoGestion.updateAgenda(this)) {
-            return "lista.xhtml";
-            
-        }else{
-            FacesMessage mensaje=new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error","Ocurrio un error, vuelva a intentarlo");
-            FacesContext.getCurrentInstance().addMessage("editaAgendaForm:identificacion", mensaje);
-            return "edita.xhtml";
-        }
-    }
-    
-        public String deleteAgenda() {
-        if (AgendarVehiculoGestion.deleteAgenda(this)) {
-            return "lista.xhtml";
-            
-        }else{
-            FacesMessage mensaje=new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error","Ocurrio un error, vuelva a intentarlo");
-            FacesContext.getCurrentInstance().addMessage("editaAgendaForm:identificacion", mensaje);
-            return "edita.xhtml";
-        }
-    }
-    
 }

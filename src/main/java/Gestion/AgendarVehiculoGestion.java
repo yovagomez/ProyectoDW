@@ -1,13 +1,13 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Gestion;
-
-
-
 
 
 import Model.AgendarVehiculo;
 import Model.Conexion;
-import Model.Descuento;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,109 +17,52 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author julian
+ * @author USUARIO
  */
 public class AgendarVehiculoGestion {
     private static final String SQL_GETAGENDAS = "SELECT * FROM agendarVehiculo";
-    private static final String GET_Agenda = "SELECT * FROM agendarVehiculo where id=? ";
-    private static final String INSERT_Agenda = "INSERT INTO agendarVehiculo(idAgente,numCita,fecha,hora,descripcion) VALUES (?,?,?,?,?)";
-    private static final String UPDATE_Agenda = "update agendarVehiculo set idAgente=?, numCita=?,fecha=?,hora=?,descripcion=? where id=?";
-    private static final String DELETE_Agenda = "delete from agendarVehiculo where idAgenda=?";
+    private static final String SQL_GETAGENDA = "SELECT * FROM agendarVehiculo where id=? and idAgente=?";
+    private static final String SQL_INSERTAGENDAS = "INSERT INTO agendarVehiculo(idAgente, numCita, fecha, hora, descripcion) VALUES (?,?,?,?,?)";
+    private static final String SQL_UPDATEAGENDAS = "UPDATE agendarVehiculo set idAgente=?, numCita=?, fecha=?, hora=?, descripciom=? where id=? and idAgente=?";
+    private static final String SQL_DELETEAGENDAS = "DELETE FROM agendarVehiculo where id=? and idAgente=?";
+
     
-        public static ArrayList<AgendarVehiculo> getAgendas() {
-            ArrayList<AgendarVehiculo> agendas = new ArrayList<>();
-            try {
-                PreparedStatement tira = Conexion.getConexion().prepareStatement(SQL_GETAGENDAS);
-                ResultSet result = tira.executeQuery();
-                
-               while (result !=null && result.next()){
-                   agendas.add(new AgendarVehiculo(
-                        result.getInt(1),
-                        result.getInt(2),
-                        result.getInt(3),
-                        result.getDate(4),
-                        result.getDouble(5),
-                        result.getString(6)));
-                   
-               }
-               
-            } catch (Exception e){
-                Logger.getLogger(AgendarVehiculo.class.getName()).log(Level.SEVERE, null, e);
-            }
-           return agendas;
-        }
-           
-     public static AgendarVehiculo getagendarVehiculo(int id , int numCita){
-        AgendarVehiculo agenda=null;
+    public static ArrayList<AgendarVehiculo> getAgendas() {
+        ArrayList<AgendarVehiculo> lista = new ArrayList<>();
         try {
-            PreparedStatement sentencia = Conexion.getConexion().prepareStatement(GET_Agenda);
-            sentencia.setInt(1, id);
-            sentencia.setInt(1, numCita);
-            ResultSet result = sentencia.executeQuery();
-            
-            while (result!=null && result.next()) {
-                agenda=new AgendarVehiculo(
-                        result.getInt(1),
-                        result.getInt(2),
-                        result.getInt(3),
-                        result.getDate(4),
-                        result.getDouble(5),
-                        result.getString(6));
-                
+            PreparedStatement sentencia = Conexion.getConexion()
+                    .prepareStatement(SQL_GETAGENDAS);
+            ResultSet rs = sentencia.executeQuery();
+            while (rs != null && rs.next()) {
+                lista.add(new AgendarVehiculo(
+                        rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getInt(3),
+                        rs.getDate(4),
+                        rs.getString(5),
+                        rs.getString(6)));
             }
-        } catch (SQLException e) {
-            Logger.getLogger(AgendarVehiculoGestion.class.getName()).log(Level.SEVERE,null,e);
+        } catch (SQLException ex) {
+            Logger.getLogger(AgendarVehiculoGestion.class.getName())
+                    .log(Level.SEVERE, null, ex);
         }
-        
-        return agenda;
+        return lista;
     }
-     public static boolean insertAgenda(AgendarVehiculo agenda){
-           try {
-               PreparedStatement sentencia=Conexion.getConexion().prepareStatement(INSERT_Agenda);
-               sentencia.setInt(1, agenda.getIdAgente());
-               sentencia.setInt(2, agenda.getNumCita());
-               sentencia.setObject(3, agenda.getFecha());
-               sentencia.setDouble(4, agenda.getHora());
-               sentencia.setString(5, agenda.getDescripcion());
-               
-               return sentencia.executeUpdate() > 0;
-               
-           } catch (SQLException e) {
-               Logger.getLogger(AgendarVehiculoGestion.class.getName()).log(Level.SEVERE,null,e);
-           }
-           
-           return false;
-       }
-      public static boolean updateAgenda(AgendarVehiculo agenda){
-           try {
-               PreparedStatement sentencia=Conexion.getConexion().prepareStatement(UPDATE_Agenda);
-               sentencia.setInt(1, agenda.getIdAgente());
-               sentencia.setInt(2, agenda.getNumCita());
-               sentencia.setObject(3, agenda.getFecha());
-               sentencia.setDouble(4, agenda.getHora());
-               sentencia.setString(5, agenda.getDescripcion());
-               
-               return sentencia.executeUpdate() > 0;
-               
-           } catch (SQLException e) {
-               Logger.getLogger(AgendarVehiculoGestion.class.getName()).log(Level.SEVERE,null,e);
-           }
-           
-           return false;
-       }
-      public static boolean deleteAgenda (AgendarVehiculo agenda){
-                try {
-                    PreparedStatement sentencia=Conexion.getConexion().prepareStatement(DELETE_Agenda);
-                    sentencia.setInt(1, agenda.getId());
-                    sentencia.setInt(2, agenda.getNumCita());
-                    
-                    return sentencia.executeUpdate() > 0;
-                    
-                } catch (SQLException e) {
-                    Logger.getLogger(AgendarVehiculoGestion.class.getName()).log(Level.SEVERE, null,e);
-                }
-                
-                return false;
-            }
     
+    public static boolean insertAgenda(AgendarVehiculo agenda) {
+        try {
+            PreparedStatement sentencia = Conexion.getConexion()
+                    .prepareStatement(SQL_INSERTAGENDAS);
+            sentencia.setInt(1, agenda.getIdAgente());
+            sentencia.setInt(2, agenda.getNumCita());
+            sentencia.setObject(3, agenda.getFecha());
+            sentencia.setString(4, agenda.getHora());
+            sentencia.setString(5, agenda.getDescripcion());
+            return sentencia.executeUpdate() > 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(AgendarVehiculoGestion.class.getName())
+                    .log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
 }
