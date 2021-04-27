@@ -124,7 +124,7 @@ public class AgenteController extends Agente implements Serializable {
     public void respaldoAgente() {
         ZipOutputStream out = null;
         try {
-            String json = AgenteGestion.respaldoJson();
+            String json = AgenteGestion.respaldoAgente();
             File f = new File(FacesContext.getCurrentInstance().
                     getExternalContext().getRealPath("/respaldo") + "agentes.zip");
             out = new ZipOutputStream(new FileOutputStream(f));

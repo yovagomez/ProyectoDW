@@ -8,32 +8,38 @@ package Gestion;
 import Model.Conexion;
 import Model.vehiculosVenta;
 import Model.ventasPorMarca;
+import java.io.StringWriter;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
+import javax.json.JsonWriter;
 
 /**
  *
  * @author ASUS
  */
 public class vehiculosVentaGestion {
-    
+
     private static final String GET_VENTAS = "SELECT * FROM vehiculosventa";
     private static final String GET_VENTA = "SELECT * FROM vehiculosventa where id=? and idVehiculo=?";
     private static final String INSERT_VENTA = "insert into vehiculosventa(idVehiculo,marca,modelo,color,anio,respaldo) VALUES (?,?,?,?,?,?)";
     private static final String UPDATE_VENTA = "update vehiculosventa set marca=?, modelo=?, color=?, anio=?, respaldo=?, where id=? and idVehiculo=?";
     private static final String DELETE_VENTA = "delete from vehiculosventa where id=? and idVehiculo=?";
     private static final String GET_MARCAS = "select marca, count(*) total from vehiculosVenta group by marca order by marca";
+
     public static ArrayList<vehiculosVenta> getVentas() {
         ArrayList<vehiculosVenta> lista_Ventas = new ArrayList<>();
         try {
             PreparedStatement sentencia = Conexion.getConexion().prepareStatement(GET_VENTAS);
             ResultSet result = sentencia.executeQuery();
 
-            while (result != null && result.next()) { 
+            while (result != null && result.next()) {
                 lista_Ventas.add(new vehiculosVenta(
                         result.getInt(1),
                         result.getInt(2),
@@ -50,15 +56,14 @@ public class vehiculosVentaGestion {
 
         return lista_Ventas;
     }
-    
-    
+
     public static ArrayList<ventasPorMarca> getVentasPorMarca() {
         ArrayList<ventasPorMarca> lista_Ventas = new ArrayList<>();
         try {
             PreparedStatement sentencia = Conexion.getConexion().prepareStatement(GET_MARCAS);
             ResultSet result = sentencia.executeQuery();
 
-            while (result != null && result.next()) { 
+            while (result != null && result.next()) {
                 lista_Ventas.add(new ventasPorMarca(
                         result.getString(1),
                         result.getInt(2)));
@@ -71,7 +76,6 @@ public class vehiculosVentaGestion {
         return lista_Ventas;
     }
 
-    
     public static vehiculosVenta getVenta(int id, int idVehiculo) {
         vehiculosVenta vehiculos = null;
         try {
@@ -95,8 +99,8 @@ public class vehiculosVentaGestion {
         }
         return vehiculos;
     }
-    
-     public static boolean insertVenta(vehiculosVenta vehiculos) {
+
+    public static boolean insertVenta(vehiculosVenta vehiculos) {
         try {
             PreparedStatement sentencia = Conexion.getConexion().prepareStatement(INSERT_VENTA);
             sentencia.setInt(1, vehiculos.getIdVehiculo());
@@ -104,14 +108,13 @@ public class vehiculosVentaGestion {
             sentencia.setString(3, vehiculos.getModelo());
             sentencia.setString(4, vehiculos.getColor());
             sentencia.setInt(5, vehiculos.getAnio());
-            sentencia.setString(6,vehiculos.getRespaldo());
+            sentencia.setString(6, vehiculos.getRespaldo());
             return sentencia.executeUpdate() > 0;
         } catch (SQLException ex) {
             Logger.getLogger(vehiculosVentaGestion.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
     }
-    
 
     public static boolean updateVenta(vehiculosVenta vehiculos) {
         try {
@@ -147,5 +150,45 @@ public class vehiculosVentaGestion {
 
         return false;
     }
-    
+
+    public static String respaldoVV() {
+       vehiculosVenta respaldo = null;
+        String tiraJson = "";
+        try {
+            PreparedStatement sentencia = Conexion.getConexion()
+                    .prepareStatement(GET_VENTAS);
+            ResultSet rs = sentencia.executeQuery();
+            while (rs != null && rs.next()) {
+                respaldo = new vehiculosVenta(
+                        rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getString(7));
+                JsonObjectBuilder creadorJson = Json.createObjectBuilder();
+                JsonObject objetoJson = creadorJson.add("id", respaldo.getId())
+                        .add("idVehiculo", respaldo.getIdVehiculo())
+                        .add("marca", respaldo.getMarca())
+                        .add("modelo", respaldo.getModelo())
+                        .add("color", respaldo.getColor())
+                        .add("anio", respaldo.getAnio())
+                        .add("respaldo", respaldo.getRespaldo())
+                        .build();
+                StringWriter tira = new StringWriter();
+                JsonWriter jsonWriter = Json.createWriter(tira);
+                jsonWriter.writeObject(objetoJson);
+                if (tiraJson == null) {
+                    tiraJson = tira.toString() + "\n";
+                } else {
+                    tiraJson = tiraJson + tira.toString() + "\n";
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(vehiculosVentaGestion.class.getName())
+                    .log(Level.SEVERE, null, ex);
+        }
+        return tiraJson;
+    }
 }

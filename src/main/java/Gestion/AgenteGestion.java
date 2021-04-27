@@ -138,7 +138,7 @@ public class AgenteGestion {
     }//Fin metodo encargado de el DELETE
 
     //Metodo encargado de hacer el respaldo en Json 
-    public static String respaldoJson() {
+    public static String respaldoAgente() {
         Agente respaldo = null;
         String tiraJson = "";
         String fechaNacimiento = "";

@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:b="http://bootsfaces.net/ui">
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
     <h:head>
         <title>Planilla de Empleados</title>
@@ -53,25 +54,29 @@
                                                    value="#{empleado.tel}"
                                                    label="Teléfono"
                                                    width="10%"/>
-                                <b:dataTableColumn style="text-align: center"
-                                                   label="Gestión"
-                                                   width="10%">
-                                    <b:commandButton look="warning" 
-                                                     value="Modificar"
-                                                     icon-awesome="fa-exclamation-triangle"
-                                                     action="#{agenteController.editaEmpleado(empleado.id, empleado.idAgente)}"/>
-                                </b:dataTableColumn>                                
+                                <c:if test = "${loginAgenteController.idRol != 'Agt'}">
+                                    <b:dataTableColumn style="text-align: center"
+                                                       label="Gestión"
+                                                       width="10%">
+                                        <b:commandButton look="warning" 
+                                                         value="Modificar"
+                                                         icon-awesome="fa-exclamation-triangle"
+                                                         action="#{agenteController.editaEmpleado(empleado.id, empleado.idAgente)}"/>
+                                    </b:dataTableColumn>
+                                </c:if>                               
                             </b:dataTable>
-                            <b:button look="success"
-                                      style="color:white"
-                                      icon-awesome="fa-user-plus"
-                                      value="Añadir Empleado" 
-                                      href="#{request.contextPath}/faces/Agentes/Añdr-Emp.xhtml"/>
-                            <s/>
-                            <b:commandButton look="warning" 
-                                             value="Respaldo"
-                                             icon-awesome="fa-file-o"
-                                             action="#{agenteController.respaldoAgente()}"/>
+                            <c:if test = "${loginAgenteController.idRol != 'Agt'}">
+                                <b:button look="success"
+                                          style="color:white"
+                                          icon-awesome="fa-user-plus"
+                                          value="Añadir Empleado" 
+                                          href="#{request.contextPath}/faces/Agentes/Añdr-Emp.xhtml"/>
+                                <s/>
+                                <b:commandButton look="warning" 
+                                                 value="Respaldo"
+                                                 icon-awesome="fa-file-o"
+                                                 action="#{agenteController.respaldoAgente()}"/>
+                            </c:if>
                         </b:panel>
                     </b:container>
                 </h:form>

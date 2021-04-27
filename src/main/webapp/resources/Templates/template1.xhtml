@@ -44,23 +44,20 @@
                         <b:dropMenu value="Usuarios" 
                                     style="color: black ; margin: 5px auto ;font-family: Work Sans;
                                     font-size: 18px">
-                            <c:if test = "${loginAgenteController.idRol == 'Admin'}">
-                                <b:navLink value="Datos Inicio de Registro" style="color: black" href="#{request.contextPath}/faces/Usuarios/Lis-Usuarios.xhtml"/> <!-- hacer vistas -->
-                            </c:if>
-                            <b:navLink value="Datos Agente" style="color: black" href="#{request.contextPath}/faces/Agentes/Pla-Empleados.xhtml"/>
+                            <b:navLink value="Planilla de Empleados" style="color: black" href="#{request.contextPath}/faces/Agentes/Pla-Empleados.xhtml"/>    
                         </b:dropMenu>
+
                         <b:dropMenu value="Vehículos"
                                     style="color: black; margin: 5px auto; font-family: Work Sans; font-size: 18px">
                             <b:navLink value="Vehículos Venta" style="color: black" href="#{request.contextPath}/faces/Venta/ListaVenta.xhtml"/>
                             <b:navLink value="Vehículos Alquiler" style="color: black" href="#{request.contextPath}/faces/Alquiler/Lista-Alquiler.xhtml"/>
-
                         </b:dropMenu>
+
                         <b:dropMenu value="Información"
                                     style="color: black; margin: 5px auto; font-family: Work Sans; font-size: 18px">
                             <b:navLink value="Usuarios" style="color: black" href="#{request.contextPath}/faces/Usuarios/Lis-Usuarios.xhtml"/>
                             <b:navLink value="Citas" style="color: black" href="#{request.contextPath}/faces/AgendarVehiculo/ListaAgendas.xhtml"/>
                             <b:navLink value="Descuentos" style="color: black" href="#{request.contextPath}/faces/Descuento/listaDescuentos.xhtml"/>
-
                         </b:dropMenu>
 
                         <b:dropMenu value="Ingresos"
@@ -73,12 +70,13 @@
                                 <b:navLink value="Lista Tiquetes" style="color: black" href="#{request.contextPath}/faces/Tiquete/tiquete.xhtml"/>
                                 <b:navLink value="Nuevo Tiquete" style="color: black" href="#{request.contextPath}/faces/Tiquete/agregar.xhtml"/> 
                             </b:dropMenu>
-
-                            <b:navLink value="Tiquetes" style="color: black" href="#{request.contextPath}/faces/Tiquete/tiquete.xhtml"/>
-                            <b:navLink value="Estadisticas de Ventas" style="color: black" href="#{request.contextPath}/faces/GraficoVentas/graficoVentas.xhtml"/>
-                             <b:navLink value="Estadisticas de Alquileres" style="color: black" href="#{request.contextPath}/faces/GraficoAlquileres/graficoAlquileres.xhtml"/>
-
+                            
+                            <c:if test = "${loginAgenteController.idRol == 'Admin'}">
+                                <b:navLink value="Estadisticas de Ventas" style="color: black" href="#{request.contextPath}/faces/GraficoVentas/graficoVentas.xhtml"/>
+                                <b:navLink value="Estadisticas de Alquileres" style="color: black" href="#{request.contextPath}/faces/GraficoAlquileres/graficoAlquileres.xhtml"/>
+                            </c:if>
                         </b:dropMenu>
+
                         <b:dropMenu value="${loginAgenteController.usuario}" iconAwesome="user" style="color: black; margin: 5px auto; font-family: Work Sans; font-size: 18px">
                             <b:navLink value="Cerrar Sesión" style="color: black" href="#{request.contextPath}/faces/index.xhtml" ></b:navLink>
                         </b:dropMenu>
