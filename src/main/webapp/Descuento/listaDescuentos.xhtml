@@ -17,14 +17,14 @@
                         <b:panel title="Lista Descuentos" 
                                  icon-awesome="fa-user-circle"
                                  collapsible="false">
-                            <b:dataTable value="#{descuentoController.descuento}"
+                            <b:dataTable value="#{descuentoController.descuentos}"
                                          var="descuento">
                                 <b:dataTableColumn style="text-align: center" 
                                                    value="#{descuento.id}"
                                                    label="ID"
                                                    width="10%"/>
                                 <b:dataTableColumn style="text-align: center"
-                                                   value="#{descuento.Condiciones}"
+                                                   value="#{descuento.condiciones}"
                                                    label="Condiciones"
                                                    width="10%"/>
                                 <b:dataTableColumn style="text-align: center"

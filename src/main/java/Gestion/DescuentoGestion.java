@@ -44,6 +44,7 @@ public class DescuentoGestion {
             }
            return registro_Descuento;
         }
+        
         public static Descuento getDescuento(int id, String Descuento){
             Descuento descuento = null;
             try {

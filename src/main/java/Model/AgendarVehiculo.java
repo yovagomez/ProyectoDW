@@ -8,7 +8,7 @@ import org.exolab.castor.types.DateTime;
  * @author julian
  */
 public class AgendarVehiculo {
-    private int idAgenda;
+    private int id;
     private int idAgente;
     private int numCita;
     private  Date fecha;
@@ -18,8 +18,8 @@ public class AgendarVehiculo {
     public AgendarVehiculo() {
     }
 
-    public AgendarVehiculo(int idAgenda, int idAgente, int numCita, Date fecha, Double hora, String descripcion) {
-        this.idAgenda = idAgenda;
+    public AgendarVehiculo(int id, int idAgente, int numCita, Date fecha, Double hora, String descripcion) {
+        this.id = id;
         this.idAgente = idAgente;
         this.numCita = numCita;
         this.fecha = fecha;
@@ -28,12 +28,12 @@ public class AgendarVehiculo {
 
     }
 
-    public int getIdAgenda() {
-        return idAgenda;
+    public int getId() {
+        return id;
     }
 
-    public void setIdAgenda(int idAgenda) {
-        this.idAgenda = idAgenda;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getIdAgente() {
