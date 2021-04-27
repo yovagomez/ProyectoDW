@@ -38,7 +38,9 @@
             <ui:insert name="top">
                 <b:navBar id="nav" style=" background: #878787" class="inicio">   
                     <b:navbarLinks pull="left">
-                        <b:image id="image" library="images" name="logo.png" style="height: 75px" tooltip="Inicio"/>
+                        <a href="#{request.contextPath}/faces/inicio.xhtml">
+                            <b:image id="image" library="images" name="logo.png" style="height: 75px" tooltip="Inicio"/>
+                        </a>
                     </b:navbarLinks>
                     <b:navbarLinks pull="right">
                         <b:dropMenu value="Usuarios" 
@@ -70,7 +72,7 @@
                                 <b:navLink value="Lista Tiquetes" style="color: black" href="#{request.contextPath}/faces/Tiquete/tiquete.xhtml"/>
                                 <b:navLink value="Nuevo Tiquete" style="color: black" href="#{request.contextPath}/faces/Tiquete/agregar.xhtml"/> 
                             </b:dropMenu>
-                            
+
                             <c:if test = "${loginAgenteController.idRol == 'Admin'}">
                                 <b:navLink value="Estadisticas de Ventas" style="color: black" href="#{request.contextPath}/faces/GraficoVentas/graficoVentas.xhtml"/>
                                 <b:navLink value="Estadisticas de Alquileres" style="color: black" href="#{request.contextPath}/faces/GraficoAlquileres/graficoAlquileres.xhtml"/>
@@ -81,9 +83,6 @@
                             <b:navLink value="Cerrar Sesión" style="color: black" href="#{request.contextPath}/faces/index.xhtml" ></b:navLink>
                         </b:dropMenu>
                     </b:navbarLinks>
-
-                    <b:navLink value="Inicio" href="#{request.contextPath}/faces/inicio.xhtml" style="color:white"></b:navLink>
- <!--                    <b:navLink value="Alquiler" href="#{request.contextPath}/faces/inicio.xhtml" style="color:white"></b:navLink>-->
                 </b:navBar>
             </ui:insert>
         </div>
